@@ -1,0 +1,37 @@
+<div class="col-lg-6 body-container body-container-transparent">
+    <form class="form-horizontal">
+        <div class="panel panel-default">
+            <div class="panel-heading">Completed quizes:</div>
+            <div class="panel-body">
+                <div ng-repeat="q in  currentStudent.completedQuizes" style="display: inline">
+                    <h4 style="font-style:italic">Quiz name: {{q.name }}</h4>
+                    <h4 style="display: inline">Grade: <span class="label" id="{{'mark'+q.id}}" style="display: inline">{{ q.grade}}</span>
+                    </h4>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+        <br/>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Student groups:</div>
+            <div class="panel-body">
+                <div ng-repeat="group in  currentStudent.groups" style="display: inline">
+                    <span class="label label-info">{{group.name }}</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="col-md-2">
+    <div>
+        <img src="{{currentStudent.avatar}}" class="current-avatar"
+             alt="Current student avatar"/>
+    </div>
+
+    <blockquote style="margin-top: 10px">
+        <p style="font-style: italic; font-size: 12px">{{currentStudent.publicNote}}</p>
+    </blockquote>
+
+</div>

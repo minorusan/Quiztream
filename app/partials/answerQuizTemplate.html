@@ -1,0 +1,62 @@
+
+
+<div class="col-lg-8 body-container-lg">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Test name</label>
+
+            <div class="col-sm-10">
+                <h4>{{currentQuiz.name}}</h4>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Group</label>
+
+            <div class="col-sm-10">
+                <h4>{{currentQuiz.group}}</h4>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">Duration</label>
+
+            <div class="col-sm-10">
+                <h4>{{currentQuiz.duration}} mins.</h4>
+            </div>
+        </div>
+        <div class="form-group">
+            <label  class="col-sm-2 control-label">Test date</label>
+
+            <div class="col-sm-10">
+                <h4>{{currentQuiz.date}}</h4>
+            </div>
+        </div>
+        <div class="well well-lg">
+            <div class="form-inline" style="position: relative">
+                <h3>Quesions</h3>
+            </div>
+
+            <hr/>
+
+            <div ng-repeat="question in currentQuiz.questions" id="questionsBox">
+                <h4>Question:</h4>
+
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <h4>{{question.text}}</h4>
+                    </div>
+                </div>
+                <h4>Answers:</h4>
+
+                <div class="well form-inline" ng-repeat="a in question.answers">
+                    <div class="checkbox col-sm-6" style="margin-right: 20px">
+                        <label>
+                            <input type="checkbox" ng-bind="a.isCorrect"> {{a.text}}
+                        </label>
+                    </div>
+                </div>
+                <hr/>
+            </div>
+            <a class="btn btn-primary" href="#/quiz/finished">Send</a>
+        </div>
+    </form>
+</div>
