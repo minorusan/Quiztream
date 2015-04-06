@@ -1,2 +1,2 @@
 #Quiztream app
-Project for managing groupss and quizes in univercities and schools
+Project for managing groups and quizes in univercities and schools
