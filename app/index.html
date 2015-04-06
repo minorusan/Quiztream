@@ -86,8 +86,9 @@
                 <div style="text-align: center" class="form-group">
                     <input type="file" accept="image/jpg" onchange="{{onPicLoad();}}" id="openFile"
                            style="display: none">
-                    <img id="avatarSm" ng-src="{{registerEntity.avatar}}" class="dropdown-toggle avatar-badge-sm-register">
-                    <h4 class="label label-primary" style="display: block; font-size: 15px">Your cute face here</h4>
+                    <img id="avatarSm" ng-src="{{registerEntity.avatar}}"
+                         class="dropdown-toggle avatar-badge-sm-register">
+                    <h4 id="cutefacelabel" class="label label-primary" style="display: block; font-size: 15px">Your cute face here</h4>
                 </div>
                 <hr/>
                 <div class="form-group">
@@ -118,12 +119,12 @@
                         not contain numbers
                     </div>
                 </div>
-                <div class="radiogroup">
+                <div style="text-align: center">
                     <h3>Select your role:</h3>
-                    <ul class="radio">
-                        <li><input type="radio" name="crust" id="crust1" value="deep"/><label for="crust1">I'm a
-                            teacher</label></li>
-                        <li><input type="radio" name="crust" id="crust2" value="thick"/><label for="crust2">I'm a
+                    <ul class="radio-inline">
+                       <li><input type="radio"name="crust" id="crust1" value="deep"/><label style="font-size: 15px" class="label label-success" for="crust1">I'm a
+                            teacher</label>
+                       <input type="radio" name="crust" style="margin-left: 50px" id="crust2"  value="thick"/><label style="font-size: 15px; margin-left: 70px" class="label label-info"  for="crust2">I'm a
                             student</label></li>
                     </ul>
                 </div>
@@ -135,7 +136,7 @@
                 <div class="alert alert-warning" id="registerFailed" role="alert"
                      style="margin-top: 5px; border-radius: 10%; display: none">Login is busy
                 </div>
-                <div class="alert alert-success" id="registerSuccess" role="alert"
+                <div  class="alert alert-success" id="registerSuccess" role="alert"
                      style="margin-top: 5px; border-radius: 10%; display: none">Registration success
                 </div>
             </div>

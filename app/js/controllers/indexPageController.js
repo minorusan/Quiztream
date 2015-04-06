@@ -42,10 +42,10 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
                     if (data.type) {
                         $cookieStore.remove('quiztreamAuth');
                         $cookieStore.put('quiztreamAuth', data.token)
-                        $('#registerSuccess').css('display', 'inline').fadeOut(2000);
+                        $('#registerSuccess').css('display', 'block').fadeOut(2000);
                         window.location.href = ("http://localhost:3000/profile");
                     } else {
-                        $('#registerFailed').css('display', 'inline').fadeOut(2000);
+                        $('#registerFailed').css('display', 'block').fadeOut(2000);
                         console.log(data.message)
                     }
                 }

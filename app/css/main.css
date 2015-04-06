@@ -5,7 +5,21 @@
 }
 
 .navbar-inverse{
-    background: rgba(55, 90, 127, 1);;
+    background: #1F5142;
+}
+
+label.css-label {
+    background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_cfb75697e53d828582ca39b058630f4c.png);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#cutefacelabel{
+    background: #1F5142;
 }
 
 #jumbotext {
@@ -146,7 +160,7 @@
 }
 
 #register-footer {
-    text-align: left;
+    text-align: center;
 }
 
 #navigation {
@@ -191,7 +205,7 @@
 }
 
 .body-container {
-    background: rgba(55, 90, 127, 0.7);
+    background: #1F5142;
     height: 100%;
     position: relative;
     max-height: 600px;
@@ -226,7 +240,7 @@
 }
 
 .body-container-lg {
-    background: rgba(55, 90, 127, 0.7);
+    background: #1F5142;
     height: 100%;
     position: relative;
     max-height: 600px;
@@ -237,7 +251,7 @@
 }
 
 .body-container-transparent {
-    background: rgba(55, 90, 127, 0.5);
+    background: #1F5142;
     height: 100%;
     margin-right: 30px;
     border-radius: 5px;
