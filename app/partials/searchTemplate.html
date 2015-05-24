@@ -5,4 +5,37 @@
         <button class="btn btn-default" type="button" ng-click="performSearch()">Go!</button>
       </span>
     </div><!-- /input-group -->
+
+    <div class="well well-lg" >
+        <h4>Groups:</h4>
+        <div ng-repeat="group in searchresults.groups">
+            <div class="panel panel-default group-info">
+                <div class="panel-body">
+                    <a type="button" class="close" href="/groups" ng-click="joinGroup(group)" style="margin-right: 10px" aria-label="Close"><span
+                            aria-hidden="true">&#9733;</span></a>
+                    <strong>{{group.groupName}}</strong>
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+    <div class="well well-lg" >
+        <h4>Teachers:</h4>
+        <div ng-repeat="teacher in searchresults.teachers">
+            <div class="media" style="padding: 10px">
+                <div class="media-left">
+                    <a href="#student">
+                        <img class="media-object" style="width:70px; height: 70px; border-radius: 50%"
+                             ng-src="{{teacher.avatar}}">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">{{teacher.sirname + ' '+teacher.name+' '+teacher.fathername}}</h4>
+                    <blockquote>
+                        <p>{{teacher.publicnote}}</p>
+                    </blockquote>
+                </div>
+            </div>
+    </div>
+
 </div>

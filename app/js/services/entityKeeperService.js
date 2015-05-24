@@ -3,9 +3,13 @@
  */
 indexPageApp.factory('entityKeeper', allEntitiesProvider);
 teachersApp.factory('entityKeeper', allEntitiesProvider);
-
+studentApp.factory('entityKeeper', allEntitiesProvider);
 function allEntitiesProvider() {
     return {
+        newLinkModel:{
+            text:'Some study material name',
+            url:'Link to study material'
+        },
         newQuestionModel: {
             text: "New question text",
             answers: [
@@ -30,6 +34,8 @@ function allEntitiesProvider() {
         registerModel: {
             login: '',
             password: '',
+            isteacher:false,
+            isstudent:true,
             name: '',
             sirname: '',
             token: '',
@@ -51,6 +57,7 @@ function allEntitiesProvider() {
                 teacherid: _id,
                 isoutdated: false,
                 date: "",
+                questionstodisplay:10,
                 duration: 45,
                 questions: [{
                     text: "Is this a best sample question?",
@@ -72,6 +79,17 @@ function allEntitiesProvider() {
                             iscorrect: false
                         }
                     ]
+                }]
+            }
+        },
+        getGroupModel: function (id) {
+            return {
+                groupName: 'New grop name',
+                teacherId: id,
+                message:'You can leave a message to students here.',
+                links:[{
+                    text:'Some study material name',
+                    url:'Link to study material'
                 }]
             }
         }

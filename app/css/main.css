@@ -5,21 +5,7 @@
 }
 
 .navbar-inverse{
-    background: #1F5142;
-}
-
-label.css-label {
-    background-image:url(http://csscheckbox.com/checkboxes/u/csscheckbox_cfb75697e53d828582ca39b058630f4c.png);
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-#cutefacelabel{
-    background: #1F5142;
+    background: rgba(39, 120, 96,0.7);
 }
 
 #jumbotext {
@@ -160,7 +146,7 @@ label.css-label {
 }
 
 #register-footer {
-    text-align: center;
+    text-align: left;
 }
 
 #navigation {
@@ -205,7 +191,7 @@ label.css-label {
 }
 
 .body-container {
-    background: #1F5142;
+    background: rgba(39, 120, 96,0.7);
     height: 100%;
     position: relative;
     max-height: 600px;
@@ -232,7 +218,7 @@ label.css-label {
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: rgba(60, 90, 127, 0.7);
+    background: rgba(39, 120, 96,0.9);
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
 }
 ::-webkit-scrollbar-thumb:window-inactive {
@@ -240,7 +226,7 @@ label.css-label {
 }
 
 .body-container-lg {
-    background: #1F5142;
+    background: rgba(39, 120, 96,0.7);
     height: 100%;
     position: relative;
     max-height: 600px;
@@ -251,7 +237,7 @@ label.css-label {
 }
 
 .body-container-transparent {
-    background: #1F5142;
+    background: rgba(39, 120, 96,0.7);
     height: 100%;
     margin-right: 30px;
     border-radius: 5px;

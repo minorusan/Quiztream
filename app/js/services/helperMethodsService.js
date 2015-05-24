@@ -3,6 +3,7 @@
  */
 teachersApp.factory('helperMethods', allHelperMethodsProvider);
 indexPageApp.factory('helperMethods', allHelperMethodsProvider);
+studentApp.factory('helperMethods', allHelperMethodsProvider);
 
 function allHelperMethodsProvider() {
     return {
@@ -52,6 +53,26 @@ function allHelperMethodsProvider() {
                 }
 
                 console.log($scope.currentQuiz.questions[0])
+                $scope.$digest();
+                $('#questionsBox').fadeOut().fadeIn();
+            };
+        },
+        addLinkAndPageInit: function ($scope, entityKeeper) {
+            document.getElementById('addQuestionButton').onclick = function () {
+                $scope.currentGroup.links.unshift(entityKeeper.newLinkModel);
+
+                if ($scope.currentGroup.links.length > 10) {
+                    $('#qcountlabel').removeClass('label-info')
+                    $('#qcountlabel').addClass('label-success')
+                }
+                if ($scope.currentGroup.links.length > 20) {
+                    $('#qcountlabel').removeClass('label-success')
+                    $('#qcountlabel').addClass('label-warning')
+                }
+                if ($scope.currentGroup.links.length > 30) {
+                    $('#qcountlabel').removeClass('label-warning')
+                    $('#qcountlabel').addClass('label-danger')
+                }
                 $scope.$digest();
                 $('#questionsBox').fadeOut().fadeIn();
             };

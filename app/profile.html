@@ -52,16 +52,18 @@
             currentUser.fathername}}</h1>
     </div>
     <div class="col-lg-3 body-container" style="position: relative" id="notificationBox">
+
         <div ng-repeat="notify in currentUser.notifications">
             <div class="notification-container">
                 <a class="btn btn-primary" ng-click="onNotificationClick(notify)" id="{{'not'+notify.id}}"
-                   data-toggle="modal" data-target="#notificationmodal">{{notify.message}}</a>
+                   data-toggle="modal" data-target="#notificationmodal">{{notify.title}}</a>
             </div>
         </div>
         <div class="notification-clear">
             <button class="btn btn-success" id="clearNotificationsBtn" ng-click="onClearNotificationsClick()">Clear
                 notifications
             </button>
+
         </div>
     </div>
     <ng-view>
@@ -77,24 +79,10 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel" style="text-align: center">Notification</h4>
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center">{{notification.title}}</h4>
             </div>
             <div class="modal-body">
-                <div style="margin-bottom: 10px">
-
-                    <h3 style="display: inline">{{notification.message}}</h3>
-                </div>
-                <hr/>
-                <div>
-                    <h4 style="display: inline">Quiz name:</h4>
-                    <h4 style="display: inline;font-style: italic">{{notification.quiz}}</h4>
-                </div>
-                <br>
-
-                <div>
-                    <h4 style="display: inline">Grade: <span class="label" id="markLabel" style="display: inline">{{ notification.grade}}</span>
-                    </h4>
-                </div>
+                    <h4 style="display: inline">{{notification.message}}</h4>
             </div>
             <div class="modal-footer">
                 <a type="button" data-dismiss="modal" href=""
@@ -113,6 +101,7 @@
 <script src="js/controllers/teachersController.js"></script>
 <script src="js/controllers/searchController.js"></script>
 <script src="js/controllers/editQuizController.js"></script>
+<script src="js/controllers/editGroupController.js"></script>
 <script src="js/controllers/studentProfileViewController.js"></script>
 <script src="js/services/entityKeeperService.js"></script>
 <script src="js/services/helperMethodsService.js"></script>

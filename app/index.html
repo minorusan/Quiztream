@@ -34,6 +34,7 @@
 <div class="container" style="background: #ffffff; width: 100%; padding: 0%">
     <div class="col-lg-3">
         <img src=""/>
+
     </div>
 </div>
 
@@ -86,9 +87,8 @@
                 <div style="text-align: center" class="form-group">
                     <input type="file" accept="image/jpg" onchange="{{onPicLoad();}}" id="openFile"
                            style="display: none">
-                    <img id="avatarSm" ng-src="{{registerEntity.avatar}}"
-                         class="dropdown-toggle avatar-badge-sm-register">
-                    <h4 id="cutefacelabel" class="label label-primary" style="display: block; font-size: 15px">Your cute face here</h4>
+                    <img id="avatarSm" ng-src="{{registerEntity.avatar}}" class="dropdown-toggle avatar-badge-sm-register">
+                    <h4 class="label label-primary" style="display: block; font-size: 15px">Your cute face here</h4>
                 </div>
                 <hr/>
                 <div class="form-group">
@@ -119,12 +119,12 @@
                         not contain numbers
                     </div>
                 </div>
-                <div style="text-align: center">
+                <div class="radiogroup">
                     <h3>Select your role:</h3>
-                    <ul class="radio-inline">
-                       <li><input type="radio"name="crust" id="crust1" value="deep"/><label style="font-size: 15px" class="label label-success" for="crust1">I'm a
-                            teacher</label>
-                       <input type="radio" name="crust" style="margin-left: 50px" id="crust2"  value="thick"/><label style="font-size: 15px; margin-left: 70px" class="label label-info"  for="crust2">I'm a
+                    <ul class="radio" >
+                        <li><input type="checkbox" name="crust" ng-model="registerEntity.isteacher" id="crust1" /><label for="crust1">I'm a
+                            teacher</label></li>
+                        <li><input type="checkbox" name="crust" ng-model="registerEntity.isstudent" id="crust2" /><label for="crust2">I'm a
                             student</label></li>
                     </ul>
                 </div>
@@ -136,7 +136,7 @@
                 <div class="alert alert-warning" id="registerFailed" role="alert"
                      style="margin-top: 5px; border-radius: 10%; display: none">Login is busy
                 </div>
-                <div  class="alert alert-success" id="registerSuccess" role="alert"
+                <div class="alert alert-success" id="registerSuccess" role="alert"
                      style="margin-top: 5px; border-radius: 10%; display: none">Registration success
                 </div>
             </div>

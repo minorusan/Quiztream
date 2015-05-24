@@ -9,8 +9,6 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
         $scope.currentQuiz = $rootScope.quizToEdit;
     }
 
-
-
     $scope.saveQuiz = function () {
         if (!$rootScope.quizToEdit) {
             $http.post('http://localhost:3000/savequiz', $scope.currentQuiz).success(function (data) {
@@ -19,6 +17,14 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
                     setTimeout(window.location.href = ('http://localhost:3000/quizes'), 1000)
                 }
             });
+            var notify = {
+                title:'Новый тест',
+                message: 'В группе '+' '+$scope.currentQuiz.group+' добавлен тест.',
+                user:$scope.currentQuiz.group
+            }
+            $http.post("http://localhost:3000/sendnotificationtest", notify).success(function (data, status, headers, config) {
+                console.log('sended notification')
+            })
         } else {
             $http.post('http://localhost:3000/updatequiz', $scope.currentQuiz).success(function (data) {
                 if (data.type) {
@@ -27,6 +33,7 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
                 }
             });
         }
+
     };
 
     helperMethods.addQuestionAndPageInit($scope, entityKeeper);
@@ -35,6 +42,4 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
         $scope.currentQuiz.questions.splice($scope.currentQuiz.questions.indexOf(questionToDelete), 1);
         $('#questionsBox').fadeOut().fadeIn();
     };
-
-
 }

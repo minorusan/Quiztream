@@ -38,25 +38,23 @@
             <hr/>
 
             <div ng-repeat="question in currentQuiz.questions" id="questionsBox">
-                <h4>Question:</h4>
-
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <h4>{{question.text}}</h4>
-                    </div>
-                </div>
+                <h4><strong>Question:</strong>{{question.text}}</h4>
                 <h4>Answers:</h4>
-
                 <div class="well form-inline" ng-repeat="a in question.answers">
-                    <div class="checkbox col-sm-6" style="margin-right: 20px">
+                    <div class="checkbox" style="">
                         <label>
-                            <input type="checkbox" ng-bind="a.isCorrect"> {{a.text}}
+                            <input type="checkbox" ng-bind="a.iscorrect"> {{a.text}}
                         </label>
                     </div>
                 </div>
                 <hr/>
             </div>
-            <a class="btn btn-primary" href="#/quiz/finished">Send</a>
+            <a class="btn btn-primary" href="/quizfinished" ng-click="finishQuizButtonClick()">Send</a>
         </div>
     </form>
 </div>
+<script>
+    $(window).blur(function() {
+
+    });
+</script>
