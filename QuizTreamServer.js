@@ -32,7 +32,7 @@ app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
 mongodb_connection_string =  "mongodb://localhost:27017/QuiztreamDb";
 //take advantage of openshift env vars when available:
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
-    mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + db_name;
+    mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL +'QuiztreamDb';
 }
 var MongoDB = mongoose.connect(mongodb_connection_string).connection;
 MongoDB.on('error', function (err) {
