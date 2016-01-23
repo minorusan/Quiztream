@@ -27,12 +27,16 @@ app.use(function (req, res, next) {
 
 mongodb_connection_string =  "mongodb://localhost:27017/QuiztreamDb";
 //take advantage of openshift env vars when available:
+
+
+
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
     mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + 'QuiztreamDb';
 }
 var MongoDB = mongoose.connect(mongodb_connection_string).connection;
+
 MongoDB.on('error', function (err) {
-    console.log(err.message);
+    console.log('Cannot connect' + err.message);
 });
 MongoDB.once('open', function () {
     console.log("Connection opened");
