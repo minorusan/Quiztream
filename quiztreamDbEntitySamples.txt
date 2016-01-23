@@ -1,0 +1,316 @@
+quizes = [{
+            id: 1,
+            name: 'Some quiz 1',
+			teacherId:1,
+            isOutdated: true,
+            date: new Date().toJSON().slice(0, 10),
+            duration: 45,
+            questions: [{
+                text: 'What is the capital of Great Britain?',
+                answers: [{
+                    text: 'London',
+                    isCorrect: true
+                },
+                    {
+                        text: 'Poltava',
+                        isCorrect: false
+                    }, {
+                        text: 'Stockholm',
+                        isCorrect: false
+                    }, {
+                        text: 'Kiev',
+                        isCorrect: false
+                    }]
+            }, {
+                text: 'What is the average length of blue whale?',
+                answers: [{
+                    text: '5 meters',
+                    isCorrect: false
+                },
+                    {
+                        text: '10 meters',
+                        isCorrect: false
+                    }, {
+                        text: '32 meters',
+                        isCorrect: true
+                    }, {
+                        text: '7 meters',
+                        isCorrect: false
+                    }]
+            }, {
+                text: 'Will I ever finish this website?!',
+                answers: [{
+                    text: 'Yes',
+                    isCorrect: true
+                },
+                    {
+                        text: 'No',
+                        isCorrect: false
+                    }, {
+                        text: 'No',
+                        isCorrect: false
+                    }, {
+                        text: 'Yes',
+                        isCorrect: true
+                    }]
+            }]
+        }, {
+            id: 2,
+            name: 'Some quiz 2',
+			teacherId:1,
+            date: new Date().toJSON().slice(0, 10),
+            duration: 10,
+            isOutdated: false,
+            questions: [{
+                text: 'What is the capital of Great Britain?',
+                answers: [{
+                    text: 'London',
+                    isCorrect: true
+                },
+                    {
+                        text: 'Poltava',
+                        isCorrect: false
+                    }, {
+                        text: 'Stockholm',
+                        isCorrect: false
+                    }, {
+                        text: 'Kiev',
+                        isCorrect: false
+                    }]
+            }, {
+                text: 'What is the average length of blue whale?',
+                answers: [{
+                    text: '5 meters',
+                    isCorrect: false
+                },
+                    {
+                        text: '10 meters',
+                        isCorrect: false
+                    }, {
+                        text: '32 meters',
+                        isCorrect: true
+                    }, {
+                        text: '7 meters',
+                        isCorrect: false
+                    }]
+            }, {
+                text: 'Will I ever finish this website?!',
+                answers: [{
+                    text: 'Yes',
+                    isCorrect: true
+                },
+                    {
+                        text: 'No',
+                        isCorrect: false
+                    }, {
+                        text: 'No',
+                        isCorrect: false
+                    }, {
+                        text: 'Yes',
+                        isCorrect: true
+                    }]
+            }]
+        }, {
+            id: 3,
+            name: 'Some quiz 3',
+			teacherId:1,
+            isOutdated: true,
+            date: new Date().toJSON().slice(0, 10),
+            duration: 25,
+            questions: [{
+                text: 'What is the capital of Great Britain?',
+                answers: [{
+                    text: 'London',
+                    isCorrect: true
+                },
+                    {
+                        text: 'Poltava',
+                        isCorrect: false
+                    }, {
+                        text: 'Stockholm',
+                        isCorrect: false
+                    }, {
+                        text: 'Kiev',
+                        isCorrect: false
+                    }]
+            }, {
+                text: 'What is the average length of blue whale?',
+                answers: [{
+                    text: '5 meters',
+                    isCorrect: false
+                },
+                    {
+                        text: '10 meters',
+                        isCorrect: false
+                    }, {
+                        text: '32 meters',
+                        isCorrect: true
+                    }, {
+                        text: '7 meters',
+                        isCorrect: false
+                    }]
+            }, {
+                text: 'Will I ever finish this website?!',
+                answers: [{
+                    text: 'Yes',
+                    isCorrect: true
+                },
+                    {
+                        text: 'No',
+                        isCorrect: false
+                    }, {
+                        text: 'No',
+                        isCorrect: false
+                    }, {
+                        text: 'Yes',
+                        isCorrect: true
+                    }]
+            }]
+        }];
+	
+ groups = [{
+            id: 1,
+            groupName: '326 st',
+			teacherId:1,
+            links: [
+                {
+                    name: 'Методичка 1',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 2',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 3',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 4',
+                    url: '#'
+                }
+            ],
+        },{
+            id: 2,
+            groupName: '327 st',
+			teacherId:1,
+            links: [
+                {
+                    name: 'Методичка 1',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 2',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 3',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 4',
+                    url: '#'
+                }
+            ],
+            members: [1,2,3],
+        },{
+            id: 3,
+            groupName: '329 st',
+			teacherId:1,
+            links: [
+                {
+                    name: 'Методичка 1',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 2',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 3',
+                    url: '#'
+                },
+                {
+                    name: 'Методичка 4',
+                    url: '#'
+                }
+            ],
+            members: [1,2,3],
+        }];
+      
+                id: 4,
+                groupName: '329 st',
+                links: [
+                    {
+                        name: 'Методичка 1',
+                        url: '#'
+                    },
+                    {
+                        name: 'Методичка 2',
+                        url: '#'
+                    },
+                    {
+                        name: 'Методичка 3',
+                        url: '#'
+                    },
+                    {
+                        name: 'Методичка 4',
+                        url: '#'
+                    }
+                ],
+               members:[1,2,3]
+            }]
+
+teachers = [{
+        name: 'Ivan',
+        profession: 'Professor',
+        fatherName: 'Ivanov',
+        cover: 'http://images4.fanpop.com/image/photos/21700000/HD-wallpapers-beautiful-pictures-21761389-1920-1200.jpg',
+        avatar: 'http://localhost:63342/QuizTream/app/img/dummy_avatar_male.jpg',
+        sirName: 'Ivanovich',
+		groups:[1,2,3],
+		quizes:[1,2,3],
+        notifications: [
+            {
+                message: 'Ivanov A.I. finished the quiz',
+                quiz:'Some quiz 1',
+                grade:5
+            },
+            {
+                message: 'Chizhova A.A. finished the quiz',
+                quiz:'Some quiz 1',
+                grade:3
+            },
+            {
+                message: 'Algebra D.V. finished the quiz',
+                quiz:'Some quiz 1',
+                grade:4
+            }
+        ],
+    }];
+	
+students = [{
+        name: 'Sergeev',
+        sirName: 'Sergey',
+        fatherName: 'Sergeevich',
+        avatar: 'http://localhost:63342/QuizTream/app/img/dummy_avatar_male.jpg',
+        groups: [1,2,3],
+        publicNote:'I am just a heart with a head on my shoulders',
+        completedQuizes:[
+            {
+                id:1,
+                name:'Some quiz 1',
+                grade:5
+            },
+            {
+                id:2,
+                name:'Some quiz 2',
+                grade:3
+            },
+            {
+                id:3,
+                name:'Some quiz 3',
+                grade:2
+            }
+        ]
+    }];

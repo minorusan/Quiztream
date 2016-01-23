@@ -1,0 +1,63 @@
+<!--Our controls will go in here-->
+<div class="col-lg-8 body-container">
+    <h4 style="color:#f5f5f5">Quizes
+        <small> of {{currentUser.name}} </small>
+    </h4>
+    <div id="addQuizBtn">
+        <a class="btn btn-success btn-sm" href="/editquiz">
+            Add new quiz
+            <span class="glyphicon-plus"></span>
+        </a>
+    </div>
+    <table class="table table-hover">
+        <tr  style="background-color: antiquewhite">
+            <th>Название</th>
+            <th>Группа</th>
+            <th>Дата</th>
+            <th>Продолжительность</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="quiz in currentUser.quizes" id="{{quiz._id}}">
+            <td style="padding: 10px">{{quiz.name}}</td>
+            <td style="padding: 10px"><b>{{quiz.group}}</b></td>
+            <td style="padding: 10px">{{quiz.date}}</td>
+            <td style="padding: 10px">{{quiz.duration}}</td>
+            <td><a class="btn btn-warning btn-sm" href="/editquiz" ng-click="editQuiz(quiz)">Edit</a></td>
+            <td><a class="btn btn-danger btn-sm" ng-click="removeQuiz(quiz)">Remove</a></td>
+        </tr>
+    </table>
+</div>
+<div ng-repeat="quiz in currentUser.quizes" class="modal fade" id="myModal{{quiz._id}}" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{quiz.name}}
+                    <small>{{quiz.group}}</small>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <h5>Date: {{quiz.date}}</h5>
+                <h5>Duration: {{quiz.duration}}mins</h5>
+                <h4>Quiestions:</h4>
+                <hr/>
+                <div ng-repeat="q in quiz.questions">
+                    <h4>{{q.text}}</h4>
+                    <div ng-repeat="a in q.answers">
+                        <strong>{{a.text}}</strong>
+                        <span ng-hide="!a.iscorrect">
+                            <small style="color:#009871">correct</small>
+                        </span>
+                    </div>
+                    <hr/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

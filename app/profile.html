@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html class="profile-html" id="profileHtml" ng-app="teachersApp" ng-controller="MainController">
+<head lang="en">
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" rel="stylesheet"/>
+    <title>Profile</title>
+</head>
+<body class="profile-body">
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navbar-fixed-top-quiztream">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Quiztream</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="edit">Profile</a></li>
+                <li><a href="quizes">Quizes</a></li>
+                <li><a href="groups">My groups</a></li>
+                <li><a href="search">Search</a></li>
+
+            </ul>
+            <div class="navbar-brand dropdown navbar-notification-logo">
+                <img id="avatarSm" class="dropdown-toggle avatar-badge-sm" ng-src="{{currentUser.avatar}}" data-toggle="dropdown">
+                <div class="not-badge-sm">
+                    <small id="notCount">{{currentUser.notifications.length}}</small>
+                </div>
+                <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="avatarSm">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#/edit">Edit profile</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="logOut()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<div class="container container-main">
+    <div class="page-header">
+        <h1 id="currentUserId" style="color:#f5f5f5">{{currentUser.sirname + " " + currentUser.name + " " +
+            currentUser.fathername}}</h1>
+    </div>
+    <div class="col-sm-3 body-container" style="position: relative" id="notificationBox">
+
+        <div ng-repeat="notify in currentUser.notifications">
+            <div class="notification-container">
+                <a class="btn btn-primary" ng-click="onNotificationClick(notify)" id="{{'not'+notify.id}}"
+                   data-toggle="modal" data-target="#notificationmodal">{{notify.title}}</a>
+            </div>
+        </div>
+        <div class="notification-clear">
+            <button class="btn btn-success" id="clearNotificationsBtn" ng-click="onClearNotificationsClick()">Clear
+                notifications
+            </button>
+
+        </div>
+    </div>
+    <ng-view>
+        <!--Content goes here!-->
+    </ng-view>
+</div>
+
+<!--Notifications modal-->
+<div class="modal fade" id="notificationmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" style="width: 400px">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="text-align: center">{{notification.title}}</h4>
+            </div>
+            <div class="modal-body">
+                    <h4 style="display: inline">{{notification.message}}</h4>
+            </div>
+            <div class="modal-footer">
+                <a type="button" data-dismiss="modal" href=""
+                   ng-click="clearCurrentNotification(notification)" class="btn btn-primary">Ok</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular/angular-cookies.js"></script>
+<script src="lib/angular/imageupload.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/mainController.js"></script>
+<script src="js/controllers/teachersController.js"></script>
+<script src="js/controllers/searchController.js"></script>
+<script src="js/controllers/editQuizController.js"></script>
+<script src="js/controllers/editGroupController.js"></script>
+<script src="js/controllers/studentProfileViewController.js"></script>
+<script src="js/services/entityKeeperService.js"></script>
+<script src="js/services/helperMethodsService.js"></script>
+</body>
+</html>

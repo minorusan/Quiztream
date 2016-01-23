@@ -1,0 +1,270 @@
+.jumbotron {
+    height: 900px;
+    background-image: url("../img/6832319-school-wallpaper.jpg");
+    background-size: cover;
+}
+
+h1
+{
+    font-family: 'Segoe UI Light';
+}
+
+
+.navbar-inverse{
+    background: rgba(39, 120, 96,0.7);
+}
+
+#jumbotext {
+    text-align: center;
+}
+
+.navbar-notification-logo {
+    float: right;
+    margin-top: -10px;
+}
+
+.control-label{
+    color:#f5f5f5;!important;
+}
+
+
+.cover-prev {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: grey;
+}
+
+
+#addQuizBtn {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+}
+
+.container-main{
+    margin-top: 30px;
+}
+
+#currentUserId{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.current-avatar {
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: grey;
+}
+
+.control-label{
+    color:whitesmoke;
+}
+
+
+#addQuestionButton {
+    position: absolute;
+    right: 30px;
+    top: -10px;
+}
+
+.avatar-badge-sm-register {
+    display: inline;
+    height: 80px;
+    display:inline;
+    cursor: pointer;
+    width: 80px;
+    border-radius: 50%;
+}
+.avatar-badge-sm-register:hover{
+    border:solid 2px;
+    border-color: #245580;
+}
+
+.avatar-badge-sm {
+    display: inline;
+    position: relative;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border-width: thick;
+    border-color: #5e5e5e;
+}
+
+.not-badge-sm {
+    position: absolute;
+    text-align: center;
+    background-color: red;
+    color:#f5f5f5;
+    top: 30%;
+    right: 5%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%
+}
+
+.not-badge-sm small {
+    vertical-align: 80%;
+}
+
+.profile-html {
+    background-image: url("../img/6832319-school-wallpaper.jpg");
+    background-size: cover;
+    margin: 0;
+    overflow: auto;
+    height: 300px;
+}
+
+.profile-body {
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0;
+    height: 1000px;
+}
+
+.notification-clear {
+    margin-top: 100px;
+    position: absolute;
+    left: 20%;
+    right: 20%;
+}
+
+.notification-container {
+    margin-top: 10px;
+    box-shadow: #080808;
+    height: 100%;
+}
+
+.notification-container a {
+    width: 100%;
+}
+
+.table-hover tr{
+    cursor: pointer;
+    background-color: azure;
+}
+
+.table-hover tr:hover{
+    background-color: #9a161a;!important;
+}
+
+#signin-footer {
+   text-align: left;
+}
+
+#register-footer {
+    text-align: left;
+}
+
+#navigation {
+    margin: 10px;
+    margin-left: 50px;
+}
+
+#clearNotificationsBtn {
+    margin-bottom: 30px;
+}
+
+.group-body {
+    position: absolute;
+    visibility: collapse;
+}
+
+.students-in-group-well {
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.student-info-sm {
+
+}
+
+.group-info:hover {
+    cursor: hand;
+}
+
+.group-info:hover .group-body {
+    position: relative;
+    visibility: visible;
+}
+
+.btn-supa{
+    border-top-left-radius: 0;!important;
+    border-top-right-radius: 0;!important;
+}
+
+
+
+.body-container {
+    background: rgba(39, 120, 96,0.7);
+    height: 100%;
+    position: relative;
+    max-height: 600px;
+    min-height: 400px;
+    box-shadow:rgba(0, 0, 0, 1) 0px 2px 2px ;
+    margin-right: 30px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(39, 120, 96,0.9);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(55, 90, 127, 0.4);
+}
+
+.body-container-lg {
+    background: rgba(39, 120, 96,0.7);
+    height: 100%;
+    position: relative;
+    max-height: 600px;
+    min-height: 400px;
+    margin-right: 30px;
+    overflow-y: scroll;
+    padding: 20px;
+}
+
+.body-container-transparent {
+    background: rgba(39, 120, 96,0.7);
+    height: 100%;
+    margin-right: 30px;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.nav-pills {
+    color: #00a379;
+}
+
+.navbar-right {
+    margin-right: 50px;
+    clear: both
+
+}
+
+
+.panel-default {
+    margin-bottom: 5px;
+}
+
+.notification-clear {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}

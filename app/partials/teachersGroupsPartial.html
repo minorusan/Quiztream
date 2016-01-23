@@ -1,0 +1,76 @@
+<!--Our controls will go in here-->
+<div class="col-lg-8 body-container">
+    <!--Teachers tab control template-->
+    <h4 style="color:#f5f5f5">Groups
+        <small> of {{ currentUser.name}}</small>
+    </h4>
+    <div id="addQuizBtn">
+        <a class="btn btn-success btn-sm" href="/editgroup">
+            Add new group
+            <span class="glyphicon-plus"></span>
+        </a>
+    </div>
+    <div ng-repeat="group in currentUser.groups">
+        <div class="panel panel-default group-info">
+            <div class="panel-body">
+                <button type="button" class="close" ng-click="removeGroup(group)" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <a type="button" href="/editgroup" class="close" ng-click="editGroup(group)" style="margin-right: 10px" aria-label="Close"><span
+                        aria-hidden="true">&#x2710;</span></a>
+                <strong>{{group.groupName}}</strong>
+
+                <div class="group-body">
+                    <div>
+                        <h4>Group message:</h4>
+                        <blockquote>{{group.message}}</blockquote>
+                    </div>
+                    <div class="well">
+                        <strong>Study materials</strong>
+                        <ul class="list-group" ng-repeat="link in group.links">
+                            <li class="list-group-item"><a href="{{link.url}}">{{link.text}}</a>
+                                <button type="button" class="close" ng-click="removeGroupLink(group, link)" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button></li>
+                        </ul>
+                        <hr/>
+                        <a class="btn btn-primary" data-toggle="modal"
+                           data-target="{{'#studentsListModal'+group._id}}" ng-click="uploadMembers(group)">Members</a>
+                        <!--Student modal!1-->
+                        <div class="modal fade" id="{{'studentsListModal'+group._id}}" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h4 class="modal-title">Members of {{group.groupName}}</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div ng-repeat="student in group.members">
+                                            <div class="media" style="padding: 10px">
+                                                <div class="media-left">
+                                                    <a href="#student">
+                                                        <img class="media-object"
+                                                             style="width:70px; height: 70px; border-radius: 50%"
+                                                             ng-src="{{student.avatar}}">
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="media-heading">{{student.sirname+' '+student.name+' '+student.fathername}}</h4>
+                                                    <blockquote>
+                                                        <p>{{student.publicnote}}</p>
+                                                    </blockquote>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
