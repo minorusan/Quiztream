@@ -4,37 +4,37 @@
 function MainController($scope, $http, $rootScope, $cookieStore, $rootElement) {
     var token = $cookieStore.get('quiztreamAuth');
     if(!token) {
-        window.location.href = 'http://localhost:3000/';
+        window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
     }
 
     $rootScope.$on("$locationChangeStart", function(event, next, current) {
         if(token.indexOf('student') != -1 && $rootElement.attr('ng-app').indexOf('teacher') != -1){
-            window.location.href = ("http://localhost:3000/studentprofile");
+            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com/studentprofile");
         }
     });
 
 
     //Initial get request
-    $http.get("http://localhost:3000/auth/"+token).success(function (data) {
+    $http.get("http://quiztream-quiztreambeta.rhcloud.com/auth/"+token).success(function (data) {
         $scope.notification = '';
         $scope.currentUser = data.data;
 
 
         $scope.logOut = function(){
             $cookieStore.remove('quiztreamAuth');
-            window.location.href = 'http://localhost:3000/';
+            window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
         }
 
         $scope.onClearNotificationsClick = function () {
             $scope.currentUser.notifications = [];
-            $http.post("http://localhost:3000/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
                 console.log(data.message);
             })
         };
 
         $scope.clearCurrentNotification = function (notification) {
             $scope.currentUser.notifications.splice($scope.currentUser.notifications.indexOf(notification), 1);
-            $http.post("http://localhost:3000/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
                 console.log(data.message);
             })
         };

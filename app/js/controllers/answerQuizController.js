@@ -14,7 +14,7 @@ function AnswerQuizController($scope, entityKeeper, $http, $rootScope, helperMet
             message: $rootScope.currentUser.name + ' ' + $rootScope.currentUser.sirname + ' пытался сжульничать на тесте.. \n' + 'Правильных ответов ' + correctAnswers
         }
 
-        $http.post("http://localhost:3000/sendnotificationquizfinished", notification).success(function () {
+        $http.post("http://quiztream-quiztreambeta.rhcloud.com/sendnotificationquizfinished", notification).success(function () {
 
             }
         )
@@ -53,7 +53,7 @@ function AnswerQuizController($scope, entityKeeper, $http, $rootScope, helperMet
             message: $rootScope.currentUser.name + ' ' + $rootScope.currentUser.sirname + ' закончил тест. \n' + 'Правильных ответов ' + correctAnswers + 'из ' + maxpossibleanswers
         }
 
-        $http.post("http://localhost:3000/sendnotificationquizfinished", notification).success(function () {
+        $http.post("http://quiztream-quiztreambeta.rhcloud.com/sendnotificationquizfinished", notification).success(function () {
             }
         )
     }

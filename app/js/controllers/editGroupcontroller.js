@@ -11,18 +11,18 @@ function CreateGroupController($scope, entityKeeper, $http, $rootScope, helperMe
 
     $scope.saveGroup = function () {
         if (!$rootScope.groupToEdit) {
-            $http.post('http://localhost:3000/savegroup', $scope.currentGroup).success(function (data) {
+            $http.post('http://quiztream-quiztreambeta.rhcloud.com/savegroup', $scope.currentGroup).success(function (data) {
                 if (data.type) {
                     $('#saveChangesSuccess').css('display', 'inline').fadeOut(2000);
 
-                    setTimeout(window.location.href = ('http://localhost:3000/groups'), 1000)
+                    setTimeout(window.location.href = ('http://quiztream-quiztreambeta.rhcloud.com/groups'), 1000)
                 }
             });
         } else {
-            $http.post('http://localhost:3000/updategroup', $scope.currentGroup).success(function (data) {
+            $http.post('http://quiztream-quiztreambeta.rhcloud.com/updategroup', $scope.currentGroup).success(function (data) {
                 if (data.type) {
                     $('#saveChangesSuccess').css('display', 'inline').fadeOut(2000).text('Update group success');
-                    setTimeout(window.location.href = ('http://localhost:3000/groups'), 1000)
+                    setTimeout(window.location.href = ('http://quiztream-quiztreambeta.rhcloud.com/groups'), 1000)
                 }
             });
         }
@@ -31,7 +31,7 @@ function CreateGroupController($scope, entityKeeper, $http, $rootScope, helperMe
             message: 'В группе '+' '+$scope.currentGroup.groupName+' произошли изменения.',
             user:$scope.currentGroup
         }
-        $http.post("http://localhost:3000/sendnotificationgroup", notify).success(function (data, status, headers, config) {
+        $http.post("http://quiztream-quiztreambeta.rhcloud.com/sendnotificationgroup", notify).success(function (data, status, headers, config) {
             console.log('sended notification')
         })
     };

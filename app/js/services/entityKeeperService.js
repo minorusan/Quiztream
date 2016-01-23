@@ -39,7 +39,7 @@ function allEntitiesProvider() {
             name: '',
             sirname: '',
             token: '',
-            avatar: 'http://localhost:3000/img/dummy_avatar_male.jpg',
+            avatar: 'http://quiztream-quiztreambeta.rhcloud.com/img/dummy_avatar_male.jpg',
             publicnote: '',
             fathername: '',
             profession: '',
