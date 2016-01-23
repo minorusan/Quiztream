@@ -1,4 +1,6 @@
-"scripts": {
-"start": "node QuizTreamServer.js"
-},
-"main": "QuizTreamServer.js"
+{
+  "scripts": {
+    "start": "node QuizTreamServer.js"
+  },
+  "main": "QuizTreamServer.js"
+}
