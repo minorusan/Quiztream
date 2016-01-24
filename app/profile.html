@@ -2,8 +2,18 @@
 <html class="profile-html" id="profileHtml" ng-app="teachersApp" ng-controller="MainController">
 <head lang="en">
     <meta charset="UTF-8">
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- Material Design fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Material Design -->
+    <link href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css" rel="stylesheet">
+    <link href="bower_components/bootstrap-material-design/dist/css/ripples.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet"/>
     <title>Profile</title>
 </head>
@@ -49,7 +59,7 @@
 
 <div class="container container-main">
     <div class="page-header">
-        <h1 id="currentUserId" style="color:#f5f5f5">{{currentUser.sirname + " " + currentUser.name + " " +
+        <h1 id="currentUserId">{{currentUser.sirname + " " + currentUser.name + " " +
             currentUser.fathername}}</h1>
     </div>
     <div class="col-sm-3 body-container" style="position: relative" id="notificationBox">
@@ -103,6 +113,11 @@
 <script src="js/controllers/searchController.js"></script>
 <script src="js/controllers/editQuizController.js"></script>
 <script src="js/controllers/editGroupcontroller.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js.map"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/material.min.js.map"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
 <script src="js/controllers/studentProfileViewController.js"></script>
 <script src="js/services/entityKeeperService.js"></script>
 <script src="js/services/helperMethodsService.js"></script>

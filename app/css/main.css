@@ -1,12 +1,7 @@
 .jumbotron {
     height: 900px;
-    background-image: url("../img/6832319-school-wallpaper.jpg");
+    background-image: url("../img/Geometric-Triangle-Wallpaper-12.jpg");
     background-size: cover;
-}
-
-h1
-{
-    font-family: 'Segoe UI Light';
 }
 
 
@@ -23,9 +18,6 @@ h1
     margin-top: -10px;
 }
 
-.control-label{
-    color:#f5f5f5;!important;
-}
 
 
 .cover-prev {
@@ -106,9 +98,13 @@ h1
 .not-badge-sm small {
     vertical-align: 80%;
 }
+h1
+{
+    color: #e7e7e7;!important;
+}
 
 .profile-html {
-    background-image: url("../img/6832319-school-wallpaper.jpg");
+    background-image: url("../img/Geometric-Triangle-Wallpaper-12.jpg");
     background-size: cover;
     margin: 0;
     overflow: auto;
@@ -195,14 +191,14 @@ h1
 
 
 .body-container {
-    background: rgba(39, 120, 96,0.7);
+    background: rgba(236, 240, 241,1.0);
     height: 100%;
     position: relative;
     max-height: 600px;
     min-height: 400px;
     box-shadow:rgba(0, 0, 0, 1) 0px 2px 2px ;
     margin-right: 30px;
-    border-radius: 5px;
+    border-radius: 1px;
     padding: 20px;
 }
 
@@ -230,7 +226,7 @@ h1
 }
 
 .body-container-lg {
-    background: rgba(39, 120, 96,0.7);
+    background: rgba(236, 240, 241,1.0);
     height: 100%;
     position: relative;
     max-height: 600px;
@@ -241,10 +237,10 @@ h1
 }
 
 .body-container-transparent {
-    background: rgba(39, 120, 96,0.7);
+    background: rgba(236, 240, 241,1.0);
     height: 100%;
     margin-right: 30px;
-    border-radius: 5px;
+    border-radius: 1px;
     padding: 20px;
 }
 

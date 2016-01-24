@@ -1,7 +1,8 @@
-/**
+﻿/**
  * Created by Щукин on 4/3/2015.
  */
 function MainController($scope, $http, $rootScope, $cookieStore, $rootElement) {
+	$.material.init();
     var token = $cookieStore.get('quiztreamAuth');
     if(!token) {
         window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
