@@ -7,6 +7,7 @@ var queries = require('./serverQueries.js');
 
 var mongoose = require('mongoose');
 var jwt = require("jsonwebtoken");
+
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
 
@@ -28,15 +29,19 @@ app.use(function (req, res, next) {
 mongodb_connection_string =  "mongodb://localhost:27017/QuiztreamDb";
 //take advantage of openshift env vars when available:
 
-
+var options = {
+    db: { native_parser: true },
+    user: 'admin',
+    pass: 'pyyGcMvEevKc'
+}
 
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
     mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + 'QuiztreamDb';
 }
-var MongoDB = mongoose.connect(mongodb_connection_string).connection;
+var MongoDB = mongoose.connect(mongodb_connection_string, options).connection;
 
 MongoDB.on('error', function (err) {
-    console.log('Cannot connect' + err.message);
+    console.log('Cannot connect ' + err.message);
 });
 MongoDB.once('open', function () {
     console.log("Connection opened");
@@ -48,9 +53,6 @@ MongoDB.on('close', function () {
 app.listen(server_port, server_ip_address, function () {
     console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
 })
-
-
-
 
 queries.serverQueries(app, MongoDB, jwt);
 
