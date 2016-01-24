@@ -98,7 +98,7 @@
 .not-badge-sm small {
     vertical-align: 80%;
 }
-h1
+.h1-header
 {
     color: #e7e7e7;!important;
 }
@@ -115,6 +115,11 @@ h1
     background-color: rgba(0, 0, 0, 0.5);
     margin: 0;
     height: 1000px;
+}
+
+h4
+{
+    color: #2a2730;
 }
 
 .notification-clear {
