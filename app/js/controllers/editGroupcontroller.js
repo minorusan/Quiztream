@@ -11,7 +11,7 @@ function CreateGroupController($scope, entityKeeper, $http, $rootScope, helperMe
 
     $scope.saveGroup = function () {
         if (!$rootScope.groupToEdit) {
-            $http.post('', $scope.currentGroup).success(function (data) {
+            $http.post('http://quiztream-quiztreambeta.rhcloud.com/updategroup', $scope.currentGroup).success(function (data) {
                 if (data.type) {
                     $('#saveChangesSuccess').css('display', 'inline').fadeOut(2000);
 
