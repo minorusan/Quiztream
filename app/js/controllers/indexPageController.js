@@ -1,11 +1,12 @@
 ﻿/**
  * Created by Щукин on 4/3/2015.
  */
+$.material.init();
 function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMethods) {
     $scope.registerEntity = entityKeeper.registerModel;
     $scope.loginModel = entityKeeper.loginModel;
     $scope.repeatPassword = '';
-$.material.init();
+
     var noError = true;
     $(function(){
         if($cookieStore.get('quiztreamAuth')){
