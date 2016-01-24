@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d8d64ad-21fd-43b8-8b2b-11fbf31d6288" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QuizTreamServer.js" afterPath="$PROJECT_DIR$/QuizTreamServer.js" />
     </list>
     <ignored path="QuizTream.iws" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="QuizTreamServer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/QuizTreamServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78289473">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.13980263">
+              <caret line="28" column="67" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -858,8 +857,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/QuizTreamServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78289473">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.13980263">
+          <caret line="28" column="67" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="67" />
           <folding />
         </state>
       </provider>
