@@ -42,7 +42,7 @@ var teachersApp = angular.module('teachersApp', ['ngCookies']).
             controller: CreateGroupController
         });
 
-        $routeProvider.otherwise({redirectTo: '/groups'});
+        $routeProvider.otherwise({redirectTo: '/edit'});
         $locationProvider.html5Mode(true)
     }]);
 
@@ -78,6 +78,6 @@ var studentApp = angular.module('studentApp', ['ngCookies']).
             controller: AnswerQuizController
         });
 
-        $routeProvider.otherwise({redirectTo: '/groups'});
+        $routeProvider.otherwise({redirectTo: '/edit'});
         $locationProvider.html5Mode(true)
     }]);
