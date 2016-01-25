@@ -86,15 +86,19 @@
                 </div>
             </div>
             <div class="modal-footer" id="signin-footer">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#regModal">Register
-                </button>
-                <a class="btn btn-primary" ng-click="logIn()">Log in</a>
+                <div style="display: inline">
+                    <a class="btn" data-toggle="modal" data-target="#regModal">Register</a>
+                </div>
+                <div style="display: inline">
+                    <a class="btn btn-primary" ng-click="logIn()">Log in</a>
+                </div>
+
 
                 <div class="alert alert-warning" id="loginFailed" role="alert"
-                     style="margin-top: 5px; border-radius: 10%; display: none">Login failed
+                     style="margin-top: 5px; border-radius: 2%; display: none">Login failed
                 </div>
                 <div class="alert alert-success" id="loginSuccess" role="alert"
-                     style="margin-top: 5px; border-radius: 10%; display: none">Login success
+                     style="margin-top: 5px; border-radius: 2%; display: none">Login success
                 </div>
             </div>
         </div>
