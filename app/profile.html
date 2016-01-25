@@ -41,14 +41,24 @@
 
             </ul>
             <div class="navbar-brand dropdown navbar-notification-logo">
-                <img id="avatarSm" class="dropdown-toggle avatar-badge-sm" ng-src="{{currentUser.avatar}}" data-toggle="dropdown">
+                <img id="avatarSm" class="dropdown-toggle avatar-badge-sm" ng-src="{{currentUser.avatar}}"
+                     data-toggle="dropdown">
+
                 <div class="not-badge-sm">
                     <small id="notCount">{{currentUser.notifications.length}}</small>
                 </div>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="avatarSm">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#/edit">Edit profile</a></li>
+                    <li role="presentation">
+                        <a href="#" role="menuitem" tabindex="-1" data-toggle="modal"
+                           data-target="#notificaionsModal">
+                            Notifications
+                            <span class="badge"> {{currentUser.notifications.length}}</span>
+                        </a>
+                    </li>
+
                     <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="logOut()">Logout</a>
                     </li>
+
                 </ul>
             </div>
         </div>
@@ -58,28 +68,40 @@
 
 
 <div class="container container-main">
-    <div class="page-header">
-        <h1 class="h1-header" id="currentUserId">{{currentUser.sirname + " " + currentUser.name + " " +
+    <div class="page-header row">
+        <h1 id="currentUserId">{{currentUser.sirname + " " + currentUser.name + " " +
             currentUser.fathername}}</h1>
     </div>
-    <div class="col-sm-3 body-container" style="position: relative" id="notificationBox">
+    <div class="row">
+        <ng-view class="col-lg-12">
 
-        <div ng-repeat="notify in currentUser.notifications">
-            <div class="notification-container">
-                <a class="btn btn-primary" ng-click="onNotificationClick(notify)" id="{{'not'+notify.id}}"
-                   data-toggle="modal" data-target="#notificationmodal">{{notify.title}}</a>
+        </ng-view>
+    </div>
+
+</div>
+
+<div class="modal fade" id="notificaionsModal" tabindex="-1" role="dialog" aria-labelledby="myNOtificationLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" style="width: 400px">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align: center">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title" id="myNOtificationLabel">Notifications</h2>
+            </div>
+            <div class="modal-body">
+                <div ng-repeat="notify in currentUser.notifications" style="text-align: center">
+                    <a class="btn btn-primary" ng-click="onNotificationClick(notify)" id="{{'not'+notify.id}}"
+                       data-toggle="modal" data-target="#notificationmodal">{{notify.title}}</a>
+                </div>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+                <a class="btn btn-success" ng-click="onClearNotificationsClick()">
+                    Clear notifications
+                </a>
             </div>
         </div>
-        <div class="notification-clear">
-            <button class="btn btn-success" id="clearNotificationsBtn" ng-click="onClearNotificationsClick()">Clear
-                notifications
-            </button>
-
-        </div>
     </div>
-    <ng-view>
-        <!--Content goes here!-->
-    </ng-view>
 </div>
 
 <!--Notifications modal-->
@@ -93,7 +115,7 @@
                 <h4 class="modal-title" id="myModalLabel" style="text-align: center">{{notification.title}}</h4>
             </div>
             <div class="modal-body">
-                    <h4 style="display: inline">{{notification.message}}</h4>
+                <h4 style="display: inline">{{notification.message}}</h4>
             </div>
             <div class="modal-footer">
                 <a type="button" data-dismiss="modal" href=""
@@ -102,6 +124,7 @@
         </div>
     </div>
 </div>
+
 <script src="js/jquery-1.11.2.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="lib/angular/angular.min.js"></script>

@@ -1,53 +1,7 @@
-
-<!--Our controls will go in here-->
-<div class="col-md-6  body-container body-container-transparent" ng-dblclick="$scope.changeUserBack()">
-    <form class="form-horizontal" >
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Name</label>
-
-            <div class="col-sm-10">
-                <input type="text" class="form-control" ng-model="currentUser.name">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Father name</label>
-
-            <div class="col-sm-10">
-                <input type="text" class="form-control" ng-model="currentUser.fathername">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Sirname</label>
-
-            <div class="col-sm-10">
-                <input type="text" class="form-control" ng-model="currentUser.sirname">
-            </div>
-        </div>
-        <br/>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Profession</label>
-
-            <div class="col-sm-10">
-                <input type="text" class="form-control" ng-model="currentUser.profession">
-            </div>
-        </div>
-        <hr/>
-        <div class="form-group">
-            <label class="col-sm-2 control-label">Public note</label>
-
-            <div class="col-sm-10">
-                <textarea type="text" class="form-control" ng-model="currentUser.publicnote"/>
-            </div>
-        </div>
-        <a class="btn btn-default" ng-click="saveChanges()">Save</a>
-        <div class="alert alert-success" id="saveChangesSuccess" role="alert" style="margin-top: 5px; display: none">Save changes success</div>
-        <div class="alert alert-danger" id="saveChangesFail" role="alert" style="margin-top: 5px; display: none"></div>
-    </form>
-</div>
-<div class="col-sm-2">
-    <div>
-        <img  id="avatarpic" ng-src="{{currentUser.avatar}}" style="border-radius: 10px; width: 200px; height: 200px; border-width: 3px; border-color: grey"
+<div class="container">
+    <div class="col-lg-2 text-center">
+        <img id="avatarpic" ng-src="{{currentUser.avatar}}"
+             style="border-radius: 50%; width: 200px; height: 200px; border-width: 3px; border-color: grey"
              alt="Current teachers avatar"/>
 
         <div style="margin-top: 5px">
@@ -56,13 +10,57 @@
         </div>
     </div>
 
-    <!--Temporarily excluded-->
-   <!-- <div style="margin-top: 10px">
-        <img src="{{currentUser.cover}}" class="cover-prev"
-             alt="Current teachers avatar"/>
+    <div class="col-lg-8 col-md-offset-2  body-container body-container-transparent"
+         ng-dblclick="$scope.changeUserBack()">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Name</label>
 
-        <div style="margin-top: 5px">
-            <button class="btn btn-primary">Pick another cover</button>
-        </div>
-    </div> -->
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="currentUser.name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Father name</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="currentUser.fathername">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Sirname</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="currentUser.sirname">
+                </div>
+            </div>
+            <br/>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Profession</label>
+
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="currentUser.profession">
+                </div>
+            </div>
+            <hr/>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Public note</label>
+
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" ng-model="currentUser.publicnote"/>
+                </div>
+            </div>
+            <a class="btn btn-default" ng-click="saveChanges()">Save</a>
+
+            <div class="alert alert-success" id="saveChangesSuccess" role="alert"
+                 style="margin-top: 5px; display: none">Save changes success
+            </div>
+            <div class="alert alert-danger" id="saveChangesFail" role="alert"
+                 style="margin-top: 5px; display: none"></div>
+        </form>
+    </div>
 </div>
+
+
+
