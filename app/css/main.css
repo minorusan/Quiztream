@@ -61,6 +61,10 @@
 #search h1 { margin-bottom: 50px }
 #search h5 { margin-top: 70px }
 
+h1
+{
+    color: #e7e7e7;
+}
 
 
 .navbar-notification-logo {
@@ -211,14 +215,20 @@ h4
     margin-left: 50px;
 }
 
-#clearNotificationsBtn {
-    margin-bottom: 30px;
-}
-
 .group-body {
     position: absolute;
     visibility: collapse;
 }
+
+.modal-footer a
+{
+    text-align: center;!important;
+}
+.modal-body a
+{
+    text-align: center;!important;
+}
+
 
 .students-in-group-well {
     height: 300px;
@@ -248,11 +258,9 @@ h4
 .body-container {
     background: rgba(236, 240, 241,1.0);
     height: 100%;
-    position: relative;
     max-height: 600px;
     min-height: 400px;
     box-shadow:rgba(0, 0, 0, 1) 0px 2px 2px ;
-    margin-right: 30px;
     border-radius: 1px;
     padding: 20px;
 }
@@ -283,7 +291,6 @@ h4
 .body-container-lg {
     background: rgba(236, 240, 241,1.0);
     height: 100%;
-    position: relative;
     max-height: 600px;
     min-height: 400px;
     margin-right: 30px;
@@ -294,7 +301,6 @@ h4
 .body-container-transparent {
     background: rgba(236, 240, 241,1.0);
     height: 100%;
-    margin-right: 30px;
     border-radius: 1px;
     padding: 20px;
 }
