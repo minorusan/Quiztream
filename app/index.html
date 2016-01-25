@@ -2,7 +2,6 @@
 <html ng-app="indexPageApp" ng-controller="IndexPageController">
 <head lang="en">
     <meta charset="UTF-8">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!-- Material Design fonts -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -32,14 +31,27 @@
                 </ul>
             </nav>
         </div>
-        <div id="jumbotext">
-            <h1>Quizstream</h1>
-
-            <p>We want to put an education to a new level</p>
-
-            <p>Want to see how?</p>
-            <a class="btn btn-success">Sure! Give me a tour!</a>
+        <div id="bg">
+            <div id="search-container">
+                <div id="search-bg">
+                    <div id="search">
+                        <h1>Name will be totally changed</h1>
+                        <h5>This text will be random for each page visit</h5>
+                        <h5><a href="#">How it works »</a></h5>
+                    </div>
+                </div>
+                <div id="search">
+                    <h1>Name will be totally changed</h1>
+                    <h5>This text will be random for each page visit</h5>
+                    <h5><a class="btn btn-md btn-success">
+                        This will do something eventually
+                    </a>
+                    </h5>
+                </div>
+            </div>
         </div>
+
+
     </div>
 </div>
 
@@ -162,12 +174,10 @@
 <script src="lib/angular/imageupload.js"></script>
 <script src="lib/angular/angular-cookies.js"></script>
 <script src="js/app.js"></script>
-<script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
-<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js.map"></script>
-<script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
-<script src="bower_components/bootstrap-material-design/dist/js/material.min.js.map"></script>
 <script src="js/services/entityKeeperService.js"></script>
 <script src="js/services/helperMethodsService.js"></script>
 <script src="js/controllers/indexPageController.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/ripples.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/material.js"></script>
 </body>
 </html>
