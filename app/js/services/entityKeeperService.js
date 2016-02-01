@@ -35,7 +35,6 @@ function allEntitiesProvider() {
             login: '',
             password: '',
             isteacher:false,
-            isstudent:true,
             name: '',
             sirname: '',
             token: '',
