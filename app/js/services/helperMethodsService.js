@@ -17,7 +17,7 @@ function allHelperMethodsProvider() {
                     var image = new Image();
                     image.src = fileLoadedEvent.target.result;
 
-                    $scope.registerEntity.avatar = jic.compress(image, 5, 'image/jpg').src;
+                    $scope.registerEntity.avatar = jic.compress(image, 10, 'image/jpg').src;
                     $scope.$digest();
                 }
                 fileReader.readAsDataURL(fileToLoad);
@@ -79,7 +79,6 @@ function allHelperMethodsProvider() {
         },
 
         initAvatarSelection: function ($scope, $rootScope) {
-
             $("#openfile").change(function () {
                 var fileToLoad = this.files[0];
                 var fileReader = new FileReader();
@@ -87,8 +86,7 @@ function allHelperMethodsProvider() {
                     var image = new Image();
                     image.src = fileLoadedEvent.target.result;
                     $scope.currentUser.avatar = jic.compress(image, 10, 'image/jpg').src;
-                    console.log('done!')
-                    $rootScope.$digest();
+                 
                     $scope.$digest();
                 }
                 fileReader.readAsDataURL(fileToLoad);
@@ -97,10 +95,12 @@ function allHelperMethodsProvider() {
                 e.preventDefault();
                 $("#openfile").trigger('click');
             });
-
-            //Initialising modals for quizes
+        }, 
+        
+        initQuizesModals: function($scope){
+             //Initialising modals for quizes
             setTimeout(function () {
-                console.log('Quizes count:' + $scope.currentUser.quizes.length)
+            
                 for (var i = 0; i <= $scope.currentUser.quizes.length - 1; i++) {
                     if ($scope.currentUser.quizes[i].isoutdated == true) {
                         var tr = document.getElementById($scope.currentUser.quizes[i]._id);
