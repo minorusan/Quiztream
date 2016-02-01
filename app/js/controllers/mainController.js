@@ -28,7 +28,7 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
         futureUser.resolve(data.data);
     });//End of initial GET request
     
-    futureUser.then(function(){
+    futureUser.promise.then(function(){
          $scope.logOut = function(){
             $cookieStore.remove('quiztreamAuth');
             window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
