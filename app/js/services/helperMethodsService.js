@@ -100,7 +100,7 @@ function allHelperMethodsProvider() {
 
             //Initialising modals for quizes
             setTimeout(function () {
-                console.log('Quizes count:' + $scope.currentUser.quizes.length)
+            
                 for (var i = 0; i <= $scope.currentUser.quizes.length - 1; i++) {
                     if ($scope.currentUser.quizes[i].isoutdated == true) {
                         var tr = document.getElementById($scope.currentUser.quizes[i]._id);
