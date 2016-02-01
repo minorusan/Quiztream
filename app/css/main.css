@@ -311,9 +311,9 @@ input{
 
 .body-container-lg {
     background: rgba(236, 240, 241,1.0);
-    height: 100%;
-    max-height: 600px;
-    min-height: 400px;
+   
+    max-height: 1000px;
+    min-height: 1000px;
     margin-right: 30px;
     overflow-y: scroll;
     padding: 20px;
@@ -321,7 +321,6 @@ input{
 
 .body-container-transparent {
     background: rgba(236, 240, 241,1.0);
-    height: 100%;
     border-radius: 1px;
     padding: 20px;
 }
