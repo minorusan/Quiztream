@@ -85,8 +85,8 @@ function allHelperMethodsProvider() {
                 fileReader.onload = function (fileLoadedEvent) {
                     var image = new Image();
                     image.src = fileLoadedEvent.target.result;
-                    $scope.currentUser.avatar = jic.compress(image, 10, 'image/jpg').src;
-                 
+                    $scope.currentUser.avatar = image.src;//jic.compress(image, 10, 'image/jpg').src;
+                    $rootScope.$digest();
                     $scope.$digest();
                 }
                 fileReader.readAsDataURL(fileToLoad);
