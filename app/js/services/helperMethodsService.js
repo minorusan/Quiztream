@@ -98,6 +98,7 @@ function allHelperMethodsProvider() {
             });
      
         }, 
+        
         initQuizesModals: function($scope){
              //Initialising modals for quizes
             setTimeout(function () {
