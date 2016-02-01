@@ -1,7 +1,7 @@
 ﻿/**
  * Created by Щукин on 4/3/2015.
  */
-function MainController($scope, $http, $rootScope, $cookieStore, $rootElement) {
+function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $q) {
 	$.material.init();
     var token = $cookieStore.get('quiztreamAuth');
     if(!token) {
@@ -13,13 +13,19 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement) {
             window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com/studentprofile");
         }
     });
-
+    
+    var futureUser = $q.deffer();
+    
+    $scope.currentUser = futureUser.promise;
+    
 
     //Initial get request
     $http.get("http://quiztream-quiztreambeta.rhcloud.com/auth/"+token).success(function (data) {
         $scope.notification = '';
-        $scope.currentUser = data.data;
+        
+        //$scope.currentUser = data.data;
 
+        futureUser.resolve(data.data);
 
         $scope.logOut = function(){
             $cookieStore.remove('quiztreamAuth');
