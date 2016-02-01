@@ -26,7 +26,13 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
     });//End of initial GET request
     
     futureUser.promise.then(function(){
-         $scope.logOut = function(){
+        
+        $('#avatarSm').attr('src', $scope.currentUser.avatar);
+
+        $rootScope.currentUser = futureUser.promise;//saving user to the root scope of app
+    });
+    
+     $scope.logOut = function(){
             $cookieStore.remove('quiztreamAuth');
             window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
         }
@@ -70,12 +76,8 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
                 }
             }
             $('#not' + notify.id).css('display', 'none');
-        };
+        }
 
 
 
-        $('#avatarSm').attr('src', $scope.currentUser.avatar);
-
-        $rootScope.currentUser = futureUser.promise;//saving user to the root scope of app
-    });
 }
