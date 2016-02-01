@@ -66,6 +66,5 @@ function TeachersController($scope, $http, $rootScope, helperMethods) {
 
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getTeacherQuizes", $scope.currentUser).success(function (data, status, headers, config) {
         $scope.currentUser.quizes = data;
-        helperMethods.initQuizesModals($scope);
     });
 }

@@ -49,13 +49,16 @@
                     <textarea type="text" class="form-control" ng-model="currentUser.publicnote" />
                 </div>
             </div>
-            <div>
-                <button class="btn btn-default" ng-click="saveChanges()">Save</button>
+            <div class="form-group">
+                <div>
+                    <button class="btn btn-default" ng-click="saveChanges()">Save</button>
 
-                <div class="alert alert-success" id="saveChangesSuccess" role="alert" style="margin-top: 5px; display: none">Save changes success
+                    <div class="alert alert-success" id="saveChangesSuccess" role="alert" style="margin-top: 5px; display: none">Save changes success
+                    </div>
+                    <div class="alert alert-danger" id="saveChangesFail" role="alert" style="margin-top: 5px; display: none"></div>
                 </div>
-                <div class="alert alert-danger" id="saveChangesFail" role="alert" style="margin-top: 5px; display: none"></div>
             </div>
+
         </form>
     </div>
 </div>

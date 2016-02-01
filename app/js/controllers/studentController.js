@@ -68,6 +68,6 @@ function StudentController($scope, $http, $rootScope, helperMethods) {
 
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getStudentQuizes", $scope.currentUser).success(function (data, status, headers, config) {
         $scope.currentUser.quizes = data;
-         helperMethods.initQuizesModals($scope);
+    
     })
 }
