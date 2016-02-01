@@ -62,6 +62,7 @@ function StudentController($scope, $http, $rootScope, helperMethods) {
         $rootScope.quizToAnswer = quiz;
     }
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getStudentGroups", $scope.currentUser).success(function (data, status, headers, config) {
+      helperMethods.initAvatarSelection($scope, $rootScope)
         $scope.currentUser.groups = data;
     })
 
