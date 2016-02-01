@@ -86,8 +86,7 @@ function allHelperMethodsProvider() {
                     var image = new Image();
                     image.src = fileLoadedEvent.target.result;
                     $scope.currentUser.avatar = jic.compress(image, 10, 'image/jpg').src;
-                    console.log('done!')
-                    $rootScope.$digest();
+                 
                     $scope.$digest();
                 }
                 fileReader.readAsDataURL(fileToLoad);
@@ -96,7 +95,6 @@ function allHelperMethodsProvider() {
                 e.preventDefault();
                 $("#openfile").trigger('click');
             });
-     
         }, 
         
         initQuizesModals: function($scope){
