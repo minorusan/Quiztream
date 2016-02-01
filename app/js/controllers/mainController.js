@@ -14,7 +14,7 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
         }
     });
     
-    var futureUser = $q.deffer();
+    var futureUser = $q.defer();
     
     $scope.currentUser = futureUser.promise;
     
