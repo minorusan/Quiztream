@@ -52,6 +52,7 @@ function AnswerQuizController($scope, entityKeeper, $http, $rootScope, helperMet
             quiz: $scope.currentQuiz,
             message: $rootScope.currentUser.name + ' ' + $rootScope.currentUser.sirname + ' закончил тест. \n' + 'Правильных ответов ' + correctAnswers + 'из ' + maxpossibleanswers
         }
+        
 
         $http.post("http://quiztream-quiztreambeta.rhcloud.com/sendnotificationquizfinished", notification).success(function () {
             }
