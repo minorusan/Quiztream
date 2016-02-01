@@ -61,10 +61,11 @@ function TeachersController($scope, $http, $rootScope, helperMethods) {
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getTeacherGroups", $scope.currentUser).success(function (data, status, headers, config) {
         
         $scope.currentUser.groups = data;
-         helperMethods.initAvatarSelection($scope, $rootScope)
+        
     })
 
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getTeacherQuizes", $scope.currentUser).success(function (data, status, headers, config) {
         $scope.currentUser.quizes = data;
+         helperMethods.initAvatarSelection($scope, $rootScope)
     });
 }

@@ -17,7 +17,7 @@ function allHelperMethodsProvider() {
                     var image = new Image();
                     image.src = fileLoadedEvent.target.result;
 
-                    $scope.registerEntity.avatar = jic.compress(image, 9, 'image/jpg').src;
+                    $scope.registerEntity.avatar = jic.compress(image, 1, 'image/jpg').src;
                     $scope.$digest();
                 }
                 fileReader.readAsDataURL(fileToLoad);
@@ -86,7 +86,7 @@ function allHelperMethodsProvider() {
                 fileReader.onload = function (fileLoadedEvent) {
                     var image = new Image();
                     image.src = fileLoadedEvent.target.result;
-                    $scope.currentUser.avatar = jic.compress(image, 10, 'image/jpg').src;
+                    $scope.currentUser.avatar = jic.compress(image, 1, 'image/jpg').src;
                     console.log('done!')
                     $rootScope.$digest();
                     $scope.$digest();
