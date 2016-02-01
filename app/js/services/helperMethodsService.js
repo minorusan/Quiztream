@@ -17,7 +17,7 @@ function allHelperMethodsProvider() {
                     var image = new Image();
                     image.src = fileLoadedEvent.target.result;
 
-                    $scope.registerEntity.avatar = jic.compress(image, 5, 'image/jpg').src;
+                    $scope.registerEntity.avatar = jic.compress(image, 9, 'image/jpg').src;
                     $scope.$digest();
                 }
                 fileReader.readAsDataURL(fileToLoad);
