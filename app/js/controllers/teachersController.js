@@ -7,7 +7,7 @@ function TeachersController($scope, $http, $rootScope, helperMethods) {
     $rootScope.quizToEdit = null;
 
     
-   
+    helperMethods.initAvatarSelection($scope, $rootScope)
 
     $scope.editGroup = function (group) {
         $rootScope.groupToEdit = group;
@@ -66,6 +66,6 @@ function TeachersController($scope, $http, $rootScope, helperMethods) {
 
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getTeacherQuizes", $scope.currentUser).success(function (data, status, headers, config) {
         $scope.currentUser.quizes = data;
-         helperMethods.initAvatarSelection($scope, $rootScope)
+ 
     });
 }
