@@ -150,7 +150,7 @@ h1
 }
 
 .not-badge-sm small {
-    vertical-align: 60%;
+    vertical-align: 80%;
 }
 .h1-header
 {
@@ -248,28 +248,24 @@ h4
     visibility: visible;
 }
 
-.btn-supa
-{
-    border-top-left-radius:0; !important
-    border-top-right-radius:0; !important
+.btn-supa{
+    border-top-left-radius: 0;!important;
+    border-top-right-radius: 0;!important;
 }
 
 
 
 .body-container {
     background: rgba(236, 240, 241,1.0);
-    max-height: 1000px;
-    min-height: 1000px;
+    height: 100%;
+    max-height: 600px;
+    min-height: 400px;
     box-shadow:rgba(0, 0, 0, 1) 0px 2px 2px ;
     border-radius: 1px;
     padding: 20px;
 }
 
 /* Let's get this party started */
-input{
-   text-align:center;
-}
-
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -310,6 +306,9 @@ input{
 
 .body-container-lg {
     background: rgba(236, 240, 241,1.0);
+    height: 100%;
+    max-height: 600px;
+    min-height: 400px;
     margin-right: 30px;
     overflow-y: scroll;
     padding: 20px;
@@ -317,6 +316,7 @@ input{
 
 .body-container-transparent {
     background: rgba(236, 240, 241,1.0);
+    height: 100%;
     border-radius: 1px;
     padding: 20px;
 }
