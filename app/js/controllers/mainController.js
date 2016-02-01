@@ -22,9 +22,6 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
     //Initial get request
     $http.get("http://quiztream-quiztreambeta.rhcloud.com/auth/"+token).success(function (data) {
         $scope.notification = '';
-        
-        //$scope.currentUser = data.data;
-
         futureUser.resolve(data.data);
     });//End of initial GET request
     
@@ -78,8 +75,6 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
 
 
         $('#avatarSm').attr('src', $scope.currentUser.avatar);
-
-
 
         $rootScope.currentUser = futureUser.promise;//saving user to the root scope of app
     });
