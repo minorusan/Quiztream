@@ -14,24 +14,14 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
         }
     });
     
-    var futureUser = $q.defer();
     
-    $scope.currentUser = futureUser.promise;
-    
-
     //Initial get request
     $http.get("http://quiztream-quiztreambeta.rhcloud.com/auth/"+token).success(function (data) {
         $scope.notification = '';
-        futureUser.resolve(data.data);
-    });//End of initial GET request
-    
-    futureUser.promise.then(function(){
+     
+        $scope.currentUser = data.data;
         
-        $('#avatarSm').attr('src', $scope.currentUser.avatar);
-
-        $rootScope.currentUser = futureUser.promise;//saving user to the root scope of app
-    });
-    
+        
      $scope.logOut = function(){
             $cookieStore.remove('quiztreamAuth');
             window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
@@ -77,7 +67,10 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
             }
             $('#not' + notify.id).css('display', 'none');
         }
+        
+        
+         $('#avatarSm').attr('src', $scope.currentUser.avatar);
 
-
-
+        $rootScope.currentUser = data.data;//saving user to the root scope of app
+    });//End of initial GET request
 }
