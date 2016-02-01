@@ -33,10 +33,6 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
     };
 
     $scope.register = function () {
-        if($scope.registerEntity.isteacher===$scope.registerEntity.isstudent){
-            alert("You can't be both teacher and student");
-        }
-
         if ($scope.registerEntity.password != $scope.repeatPassword) {
             console.log('Error');
             noError = false;

@@ -45,7 +45,7 @@
                      data-toggle="dropdown">
 
                 <div class="not-badge-sm">
-                    <small id="notCount">{{currentUser.notifications.length}}</small>
+                    <small id="notCount" ng-cloak="0">{{currentUser.notifications.length}}</small>
                 </div>
                 <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="avatarSm">
                     <li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-toggle="modal"
@@ -65,7 +65,7 @@
 
 <div class="container container-main">
     <div class="page-header row text-center">
-        <h1 id="currentUserId">{{currentUser.sirname + " " + currentUser.name + " " +
+        <h1 id="currentUserId" ng-cloak="">{{currentUser.sirname + " " + currentUser.name + " " +
             currentUser.fathername}}</h1>
     </div>
     <div class="row">

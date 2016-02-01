@@ -1,7 +1,7 @@
 ﻿/**
  * Created by Щукин on 4/3/2015.
  */
-function MainController($scope, $http, $rootScope, $cookieStore, $rootElement) {
+function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $q) {
 	$.material.init();
     var token = $cookieStore.get('quiztreamAuth');
     if(!token) {
@@ -13,15 +13,16 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement) {
             window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com/studentprofile");
         }
     });
-
-
+    
+    
     //Initial get request
     $http.get("http://quiztream-quiztreambeta.rhcloud.com/auth/"+token).success(function (data) {
         $scope.notification = '';
+     
         $scope.currentUser = data.data;
-
-
-        $scope.logOut = function(){
+        
+        
+     $scope.logOut = function(){
             $cookieStore.remove('quiztreamAuth');
             window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
         }
@@ -65,14 +66,11 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement) {
                 }
             }
             $('#not' + notify.id).css('display', 'none');
-        };
+        }
+        
+        
+         $('#avatarSm').attr('src', $scope.currentUser.avatar);
 
-
-
-        $('#avatarSm').attr('src', $scope.currentUser.avatar);
-
-
-
-        $rootScope.currentUser = $scope.currentUser;//saving user to the root scope of app
+        $rootScope.currentUser = data.data;//saving user to the root scope of app
     });//End of initial GET request
 }

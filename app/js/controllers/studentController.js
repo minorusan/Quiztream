@@ -62,10 +62,12 @@ function StudentController($scope, $http, $rootScope, helperMethods) {
         $rootScope.quizToAnswer = quiz;
     }
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getStudentGroups", $scope.currentUser).success(function (data, status, headers, config) {
+    
         $scope.currentUser.groups = data;
     })
 
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getStudentQuizes", $scope.currentUser).success(function (data, status, headers, config) {
         $scope.currentUser.quizes = data;
+    
     })
 }

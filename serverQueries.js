@@ -60,7 +60,7 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
 
     app.post('/teachers/register', function (req, result) {
         var student = '';
-        if (req.body.isstudent) {
+        if (!req.body.isteacher) {
             student = 'student';
 
         }
