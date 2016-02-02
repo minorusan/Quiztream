@@ -60,15 +60,6 @@
 #search h1, #search h5, #search h5 a { text-align: center; color: #fefefe; font-weight: lighter; }
 #search h1 { margin-bottom: 50px }
 #search h5 { margin-top: 70px }
-
-h1
-{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: lighter;
-    color: #e7e7e7;
-}
-
-
 .navbar-notification-logo {
     float: right;
     margin-top: -10px;
@@ -163,9 +154,10 @@ h1
 }
 
 .profile-html {
-    background-image: url("../img/Geometric-Triangle-Wallpaper-12.jpg");
+
     background-size: cover;
     margin: 0;
+    background-color: #ecf0f1;
     overflow: auto;
     height: 100%;
 }
@@ -175,7 +167,7 @@ small {
 }
 
 .profile-body {
-    background-color: rgba(0, 0, 0, 0.5);
+   
     margin: 0;
     height: 100%;
 }
