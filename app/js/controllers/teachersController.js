@@ -59,10 +59,8 @@ function TeachersController($scope, $http, $rootScope, helperMethods) {
 
 
     $rootScope.$on("$locationChangeStart", function(event, next, current) {
-        if($scope.currentUser != $rootScope.currentUser) {
-            console.log('Yeah, changes were made before page leave.');
+            console.debug('Yeah, changes were made before page leave.');
             $scope.saveChanges();
-        }
     });
 
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getTeacherGroups", $scope.currentUser).success(function (data, status, headers, config) {
