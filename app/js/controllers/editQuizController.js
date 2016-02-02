@@ -36,7 +36,10 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
 
     };
 
-    helperMethods.addQuestionAndPageInit($scope, entityKeeper);
+    setTimeout(function(){
+         helperMethods.addQuestionAndPageInit($scope, entityKeeper);
+    }, 100);
+   
 
     $scope.deleteQuestion = function (questionToDelete) {
         $scope.currentQuiz.questions.splice($scope.currentQuiz.questions.indexOf(questionToDelete), 1);
