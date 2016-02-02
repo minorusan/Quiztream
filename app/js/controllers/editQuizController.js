@@ -38,7 +38,7 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
 
     setTimeout(function(){
          helperMethods.addQuestionAndPageInit($scope, entityKeeper);
-    }, 100);
+    }, 1000);
    
 
     $scope.deleteQuestion = function (questionToDelete) {
