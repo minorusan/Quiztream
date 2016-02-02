@@ -10,14 +10,15 @@
         </a>
     </div>
     <div ng-repeat="group in currentUser.groups">
-        <div class="panel panel-default group-info">
-            <div class="panel-body">
+        <div class="panel panel-info group-info">
+            <div class="panel-heading">
                 <button type="button" class="close" ng-click="removeGroup(group)" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <a type="button" href="/editgroup" class="close" ng-click="editGroup(group)" style="margin-right: 10px" aria-label="Close"><span
                         aria-hidden="true">&#x2710;</span></a>
                 <strong>{{group.groupName}}</strong>
-
+            </div>
+            <div class="panel-body">
                 <div class="group-body">
                     <div>
                         <h4>Group message:</h4>
