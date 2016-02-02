@@ -5,9 +5,8 @@
         <small> of {{ currentUser.name}}</small>
     </h4>
     <div id="addQuizBtn">
-        <a class="btn btn-success btn-sm" href="/editgroup">
-            Add new group
-            <span class="glyphicon-plus"></span>
+        <a class="btn btn-info btn-fab" href="/editgroup">
+            <i class="material-icons">group_add</i>
         </a>
     </div>
     <div ng-repeat="group in currentUser.groups">
