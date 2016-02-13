@@ -25,7 +25,7 @@ function IncativeController($scope, $http, $rootScope, helperMethods, $location)
     },200)
 
     $scope.saveChanges = function () {
-        $http.post("http://quiztream-quiztreambeta.rhcloud.com/updatequiz/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+        $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
             console.log(data.message);
             if (!data.type) {
                 $('#saveChangesFail').css('display', 'inline').fadeOut(2000).text('Request failed. Server error');
