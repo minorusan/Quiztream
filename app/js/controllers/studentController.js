@@ -1,13 +1,25 @@
 /**
  * Created by Щукин on 4/3/2015.
  */
-function StudentController($scope, $http, $rootScope, helperMethods) {
+
+
+function StudentController($scope, $http, $rootScope, helperMethods, $location) {
     $scope.currentUser = $rootScope.currentUser;
     $rootScope.groupToEdit = null;
     $rootScope.quizToEdit = null;
 
 
-
+    if($scope.currentUser.activationStatusCode == kUnregisteredUserStatusCode)
+    {
+        $location.path(kUnRegisteredUserLocation);
+    }else if($scope.currentUser.activationStatusCode == kBannedUserStatusCode)
+    {
+        $location.path(kBannedUserLocation);
+    }
+    else if($scope.currentUser.activationStatusCode == kVerifyUserStatusCode)
+    {
+        $location.path(kVerifyUserLocation);
+    }
 
     helperMethods.initAvatarSelection($scope, $rootScope)
 
@@ -62,7 +74,6 @@ function StudentController($scope, $http, $rootScope, helperMethods) {
         $rootScope.quizToAnswer = quiz;
     }
     $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/getStudentGroups", $scope.currentUser).success(function (data, status, headers, config) {
-    
         $scope.currentUser.groups = data;
     })
 

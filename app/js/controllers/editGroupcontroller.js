@@ -36,8 +36,6 @@ function CreateGroupController($scope, entityKeeper, $http, $rootScope, helperMe
         })
     };
 
-
-
     helperMethods.addLinkAndPageInit($scope, entityKeeper);
 
     $scope.removeGroupLink = function (link) {

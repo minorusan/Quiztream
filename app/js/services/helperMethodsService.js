@@ -22,9 +22,10 @@ function allHelperMethodsProvider() {
                 }
                 fileReader.readAsDataURL(fileToLoad);
             });
+
             $("#avatarSm").click(function (e) {
-                e.preventDefault();
-                $("#openFile").trigger('click');
+                alert('You will be able to choose different pick after completing registration.');
+
             });
         },
 

@@ -1,5 +1,14 @@
 'use strict';
 
+var kVerifyUserLocation = 'verify';
+var kVerifyUserStatusCode = 500;
+
+var kUnRegisteredUserLocation = 'inactive';
+var kUnregisteredUserStatusCode = 300;
+
+var kBannedUserLocation = 'banned';
+var kBannedUserStatusCode = 404;
+
 var indexPageApp = angular.module('indexPageApp', ['ngCookies']);
 
 var teachersApp = angular.module('teachersApp', ['ngCookies']).
@@ -41,7 +50,18 @@ var teachersApp = angular.module('teachersApp', ['ngCookies']).
             templateUrl: '/partials/editGroupPartial.html',
             controller: CreateGroupController
         });
-
+    $routeProvider.when('/inactive', {
+        templateUrl: './partials/inactive.html',
+        controller:IncativeController
+    });
+    $routeProvider.when('/banned', {
+        templateUrl: './partials/banned.html',
+        controller:IncativeController
+    });
+    $routeProvider.when('/verify', {
+        templateUrl: './partials/requestDocument.html',
+        controller:IncativeController
+    });
         $routeProvider.otherwise({redirectTo: '/edit'});
         $locationProvider.html5Mode(true)
     }]);
@@ -77,7 +97,18 @@ var studentApp = angular.module('studentApp', ['ngCookies']).
             templateUrl: './partials/answerQuizTemplate.html',
             controller: AnswerQuizController
         });
-
+    $routeProvider.when('/inactive', {
+        templateUrl: './partials/inactive.html',
+        controller:IncativeController
+    });
+    $routeProvider.when('/verify', {
+        templateUrl: './partials/requestDocument.html',
+        controller:IncativeController
+    });
+    $routeProvider.when('/banned', {
+        templateUrl: './partials/banned.html',
+        controller:IncativeController
+    });
         $routeProvider.otherwise({redirectTo: '/edit'});
         $locationProvider.html5Mode(true)
     }]);

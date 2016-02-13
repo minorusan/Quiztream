@@ -1,0 +1,14 @@
+<div class="col-lg-4 body-container">
+   <h1>Please, provide image of document, that can verify you identity :</h1>
+
+</div>
+<div class="col-lg-8 body-container">
+    <img ng-src="{{currentUser.documentPhoto}}" style="height: 200px; border-width: 3px; border-color: grey"
+         alt="Current document photo" />
+
+    <div style="margin-top: 5px">
+        <button class="btn btn-success" id="pickDocument">Pick another photo</button>
+        <input type="file" id="openDocument" style="display:none">
+    </div>
+
+</div>

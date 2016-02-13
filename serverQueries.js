@@ -5,6 +5,19 @@
 module.exports.serverQueries = function (app, MongoDB, jwt) {
     var ObjectID = require('mongodb').ObjectID;
 
+    app.get('/inactiveUsers', function (req, responce) {
+        console.log('Someone tries to get inactive folks!');
+        MongoDB.collection('Teachers').find().toArray(function (err, res) {
+            if (err) {
+                console.log(err);
+            } else {
+                responce.json({
+                    members:res
+                });
+            }
+        })
+    });
+
     app.get('/', function (req, res) {
         res.sendFile('app/index.html');
     });
