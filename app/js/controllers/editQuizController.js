@@ -11,10 +11,10 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
 
     $scope.saveQuiz = function () {
         if (!$rootScope.quizToEdit) {
-            $http.post('http://quiztream-quiztreambeta.rhcloud.com/savequiz', $scope.currentQuiz).success(function (data) {
+            $http.post('http://quiztream-quiztreambeta.rhcloud.com//savequiz', $scope.currentQuiz).success(function (data) {
                 if (data.type) {
                     $('#saveChangesSuccess').css('display', 'inline').fadeOut(2000);
-                    setTimeout(window.location.href = ('http://quiztream-quiztreambeta.rhcloud.com/quizes'), 1000)
+                    setTimeout(window.location.href = ('http://quiztream-quiztreambeta.rhcloud.com//quizes'), 1000)
                 }
             });
             var notify = {
@@ -22,14 +22,14 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
                 message: 'В группе '+' '+$scope.currentQuiz.group+' добавлен тест.',
                 user:$scope.currentQuiz.group
             }
-            $http.post("http://quiztream-quiztreambeta.rhcloud.com/sendnotificationtest", notify).success(function (data, status, headers, config) {
+            $http.post("http://quiztream-quiztreambeta.rhcloud.com//sendnotificationtest", notify).success(function (data, status, headers, config) {
                 console.log('sended notification')
             })
         } else {
-            $http.post('http://quiztream-quiztreambeta.rhcloud.com/updatequiz', $scope.currentQuiz).success(function (data) {
+            $http.post('http://quiztream-quiztreambeta.rhcloud.com//updatequiz', $scope.currentQuiz).success(function (data) {
                 if (data.type) {
                     $('#saveChangesSuccess').css('display', 'inline').fadeOut(2000).text('Update quiz success');
-                    setTimeout(window.location.href = ('http://quiztream-quiztreambeta.rhcloud.com/quizes'), 1000)
+                    setTimeout(window.location.href = ('http://quiztream-quiztreambeta.rhcloud.com//quizes'), 1000)
                 }
             });
         }

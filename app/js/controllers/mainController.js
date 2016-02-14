@@ -1,42 +1,61 @@
 ﻿/**
  * Created by Щукин on 4/3/2015.
  */
-function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $q) {
+function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $location) {
 	$.material.init();
     var token = $cookieStore.get('quiztreamAuth');
     if(!token) {
-        window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
+        window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com//';
     }
 
     $rootScope.$on("$locationChangeStart", function(event, next, current) {
         if(token.indexOf('student') != -1 && $rootElement.attr('ng-app').indexOf('teacher') != -1){
-            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com/studentprofile");
+            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com//studentprofile");
         }
     });
     
     
     //Initial get request
-    $http.get("http://quiztream-quiztreambeta.rhcloud.com/auth/"+token).success(function (data) {
+    $http.get("http://quiztream-quiztreambeta.rhcloud.com//auth/"+token).success(function (data) {
+
+        $scope.logOut = function(){
+            $cookieStore.remove('quiztreamAuth');
+            window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com//';
+        }
+
+        if(!data || !data.type)
+        {
+            $scope.currentUser = {
+                avatar:'http://quiztream-quiztreambeta.rhcloud.com//img/accountdeleted.png',
+                name:'',
+                sirname:'',
+                fathername:'',
+                notifications : []
+            }
+
+            $location.path(kDeletedAccountLocation);
+            $('#avatarSm').attr('src', $scope.currentUser.avatar);
+            return
+        }
+
+
         $scope.notification = '';
      
         $scope.currentUser = data.data;
-        
-        
-     $scope.logOut = function(){
-            $cookieStore.remove('quiztreamAuth');
-            window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/';
-        }
+
+
+        $('#avatarSm').attr('src', $scope.currentUser.avatar);
 
         $scope.onClearNotificationsClick = function () {
             $scope.currentUser.notifications = [];
-            $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://quiztream-quiztreambeta.rhcloud.com//teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
                 console.log(data.message);
             })
         };
 
         $scope.clearCurrentNotification = function (notification) {
             $scope.currentUser.notifications.splice($scope.currentUser.notifications.indexOf(notification), 1);
-            $http.post("http://quiztream-quiztreambeta.rhcloud.com/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://quiztream-quiztreambeta.rhcloud.com//teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
                 console.log(data.message);
             })
         };
@@ -67,10 +86,9 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
             }
             $('#not' + notify.id).css('display', 'none');
         }
-        
-        
-         $('#avatarSm').attr('src', $scope.currentUser.avatar);
 
+
+        $('#avatarSm').attr('src', $scope.currentUser.avatar);
         $rootScope.currentUser = data.data;//saving user to the root scope of app
     });//End of initial GET request
 }

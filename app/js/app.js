@@ -1,5 +1,7 @@
 'use strict';
 
+var kDeletedAccountLocation = 'deleted';
+
 var kVerifyUserLocation = 'verify';
 var kVerifyUserStatusCode = 500;
 
@@ -62,6 +64,10 @@ var teachersApp = angular.module('teachersApp', ['ngCookies']).
         templateUrl: './partials/requestDocument.html',
         controller:IncativeController
     });
+    $routeProvider.when('/deleted', {
+        templateUrl: './partials/deletedAccountPartial.html',
+        controller:IncativeController
+    });
         $routeProvider.otherwise({redirectTo: '/edit'});
         $locationProvider.html5Mode(true)
     }]);
@@ -107,6 +113,10 @@ var studentApp = angular.module('studentApp', ['ngCookies']).
     });
     $routeProvider.when('/banned', {
         templateUrl: './partials/banned.html',
+        controller:IncativeController
+    });
+    $routeProvider.when('/deleted', {
+        templateUrl: './partials/deletedAccountPartial.html',
         controller:IncativeController
     });
         $routeProvider.otherwise({redirectTo: '/edit'});
