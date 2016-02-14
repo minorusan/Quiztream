@@ -33,6 +33,7 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
     };
 
     $scope.register = function () {
+        noError = true;
         if ($scope.registerEntity.password != $scope.repeatPassword) {
             console.log('Error');
             noError = false;
@@ -42,6 +43,15 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
             $('.name-warning').prop('hidden', false);
             noError = false;
         }
+
+        if(!validateEmail($scope.registerEntity.email))
+        {
+            $('.email-warning').prop('hidden', false);
+            noError = false;
+        }
+
+
+
         if (noError) {
             $http.post("http://quiztream-quiztreambeta.rhcloud.com//teachers/register", $scope.registerEntity).success(function (data, status, headers, config) {
                 if(status!=413){
@@ -61,6 +71,12 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
                     }
                 }
             })
+        }
+
+        function validateEmail(email)
+        {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
         }
     }
 }
