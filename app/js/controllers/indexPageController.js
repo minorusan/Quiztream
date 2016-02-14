@@ -60,9 +60,9 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
                         $cookieStore.put('quiztreamAuth', data.token)
                         $('#registerSuccess').css('display', 'inline').fadeOut(2000);
                         if($scope.registerEntity.isteacher){
-                            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com//profile");
+                            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com/profile");
                         }else{
-                            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com//studentprofile");
+                            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com/studentprofile");
                         }
 
                     } else {
