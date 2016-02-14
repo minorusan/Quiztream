@@ -18,6 +18,20 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
         })
     });
 
+    app.post('/teachers/removeuser', function (req, result) {
+        delete req.body._id;
+        MongoDB.collection('Teachers').remove({login: req.body.login}, function (err, doc) {
+            if (err) {
+                console.log(err);
+                console.log('remove fail!');
+                result.json({type: false})
+            } else {
+                console.log('remove success! docs uploaded:' + doc)
+                result.json({type: true})
+            }
+        });
+    });
+
     app.get('/', function (req, res) {
         res.sendFile('app/index.html');
     });
