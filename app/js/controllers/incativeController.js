@@ -24,7 +24,15 @@ function IncativeController($scope, $http, $rootScope, helperMethods, $location)
         });
     },200)
 
+
     $scope.saveChanges = function () {
+        $http.post("http://localhost:8080/authallusers").success(function (data, status, headers, config)
+        {
+            console.error("DEBUGMODE::ALL USERS GAINING ACCESS!");
+        });
+
+
+    /*
         $http.post("http://localhost:8080/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
             console.log(data.message);
             if (!data.type) {
@@ -36,7 +44,7 @@ function IncativeController($scope, $http, $rootScope, helperMethods, $location)
             if (status == 413) {
                 $('#saveChangesFail').css('display', 'inline').fadeOut(2000).text('Request failed.');
             }
-        });
+        });*/
     };
 
 }

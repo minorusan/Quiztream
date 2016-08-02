@@ -3,8 +3,9 @@
 	// List of configurations. Add new configurations or edit existing ones.
 	"configurations": [
 		{
+			"request": "launch",
 			// Name of configuration; appears in the launch configuration drop down menu.
-			"name": "QuiztreamServer.js",
+			"name": "Quiztream",
 			// Type of configuration.
 			"type": "node",
 			// Workspace relative or absolute path to the program.
@@ -34,7 +35,7 @@
 			// TCP/IP address. Default is "localhost".
 			"address": "localhost",
 			// Port to attach to.
-			"port": 3000,
+			"port": 8080,
 			"sourceMaps": false
 		}
 	]

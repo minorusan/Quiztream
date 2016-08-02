@@ -12,7 +12,7 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
                 console.log(err);
             } else {
                 responce.json({
-                    members:res
+                    members: res
                 });
             }
         })
@@ -20,14 +20,14 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
 
     app.post('/teachers/removeuser', function (req, result) {
         delete req.body._id;
-        MongoDB.collection('Teachers').remove({login: req.body.login}, function (err, doc) {
+        MongoDB.collection('Teachers').remove({ login: req.body.login }, function (err, doc) {
             if (err) {
                 console.log(err);
                 console.log('remove fail!');
-                result.json({type: false})
+                result.json({ type: false })
             } else {
                 console.log('remove success! docs uploaded:' + doc)
-                result.json({type: true})
+                result.json({ type: true })
             }
         });
     });
@@ -62,7 +62,7 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
             s4() + '-' + s4() + s4() + s4();
     }
     app.get('/auth/:token', function (req, res) {
-        MongoDB.collection('Teachers').findOne({token: req.params.token}, function (err, user) {
+        MongoDB.collection('Teachers').findOne({ token: req.params.token }, function (err, user) {
             if (err) {
                 res.json({
                     type: false,
@@ -89,11 +89,10 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
         var student = '';
         if (!req.body.isteacher) {
             student = 'student';
-
         }
         req.body.token = guid() + student;
         console.log(req.body.token);
-        MongoDB.collection('Teachers').findOne({login: req.body.login}, function (err, docs) {
+        MongoDB.collection('Teachers').findOne({ login: req.body.login }, function (err, docs) {
             if (docs) {
                 console.log('Login is busy')
                 result.json({
@@ -160,7 +159,7 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
     });
 
     app.post('/teachers/getTeacherGroups', function (req, result) {
-        MongoDB.collection('Groups').find({teacherId: req.body._id}).toArray(function (err, res) {
+        MongoDB.collection('Groups').find({ teacherId: req.body._id }).toArray(function (err, res) {
             result.json(res);
         })
     });
@@ -184,14 +183,14 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
     app.post('/teachers/getStudentQuizes', function (req, result) {
 
         var quizestosend = [];
-        MongoDB.collection('Teachers').findOne({_id: new ObjectID(req.body._id)}, function (err, res) {
+        MongoDB.collection('Teachers').findOne({ _id: new ObjectID(req.body._id) }, function (err, res) {
             groupNames = [];
-            for(var group in res.groups){
+            for (var group in res.groups) {
                 groupNames.push(res.groups[group].groupName)
             }
-            for(var group in groupNames){
-                MongoDB.collection('Quizes').find({group: groupNames[group]}).toArray(function (err, res) {
-                    for(var quiz in res){
+            for (var group in groupNames) {
+                MongoDB.collection('Quizes').find({ group: groupNames[group] }).toArray(function (err, res) {
+                    for (var quiz in res) {
                         quizestosend.push(res[quiz]);
                     }
                     result.json(quizestosend);
@@ -203,20 +202,20 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
 
     app.post('/teachers/getTeacherQuizes', function (req, result) {
 
-        MongoDB.collection('Quizes').find({teacherid: req.body._id}).toArray(function (err, res) {
+        MongoDB.collection('Quizes').find({ teacherid: req.body._id }).toArray(function (err, res) {
             result.json(res);
         })
     });
 
     app.post('/removequiz', function (req, result) {
-        MongoDB.collection('Quizes').removeOne({_id: new ObjectID(req.body._id)}, function (err, res) {
+        MongoDB.collection('Quizes').removeOne({ _id: new ObjectID(req.body._id) }, function (err, res) {
 
             result.json(res);
         })
     });
 
     app.post('/removegroup', function (req, result) {
-        MongoDB.collection('Groups').removeOne({_id: new ObjectID(req.body._id)}, function (err, res) {
+        MongoDB.collection('Groups').removeOne({ _id: new ObjectID(req.body._id) }, function (err, res) {
 
             result.json(res);
         })
@@ -224,13 +223,13 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
 
     app.post('/removegrouplink', function (req, result) {
         delete req.body._id;
-        MongoDB.collection('Groups').update({groupName: req.body.groupName}, req.body, {w: 1}, function (err, doc) {
+        MongoDB.collection('Groups').update({ groupName: req.body.groupName }, req.body, { w: 1 }, function (err, doc) {
             if (err) {
                 console.log(err);
-                result.json({type: false})
+                result.json({ type: false })
             } else {
                 console.log('insert success! docs uploaded:' + doc)
-                result.json({type: true})
+                result.json({ type: true })
             }
 
         });
@@ -239,13 +238,13 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
     app.post('/teachers/saveUser', function (req, result) {
         delete req.body._id;
         console.log(req.body.groups)
-        MongoDB.collection('Teachers').update({login: req.body.login}, req.body, {w: 1}, function (err, doc) {
+        MongoDB.collection('Teachers').update({ login: req.body.login }, req.body, { w: 1 }, function (err, doc) {
             if (err) {
                 console.log(err);
-                result.json({type: false})
+                result.json({ type: false })
             } else {
                 console.log('insert success! docs uploaded:' + doc)
-                result.json({type: true})
+                result.json({ type: true })
             }
         });
     });
@@ -253,13 +252,13 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
     app.post('/updatequiz', function (req, result) {
         var id = req.body._id;
         delete req.body._id;
-        MongoDB.collection('Quizes').update({_id: new ObjectID(id)}, req.body, {w: 1}, function (err, doc) {
+        MongoDB.collection('Quizes').update({ _id: new ObjectID(id) }, req.body, { w: 1 }, function (err, doc) {
             if (err) {
                 console.log(err);
-                result.json({type: false})
+                result.json({ type: false })
             } else {
                 console.log('update success! docs uploaded:' + doc)
-                result.json({type: true})
+                result.json({ type: true })
             }
         });
     });
@@ -267,13 +266,13 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
     app.post('/updategroup', function (req, result) {
         var id = req.body._id;
         delete req.body._id;
-        MongoDB.collection('Groups').update({_id: new ObjectID(id)}, req.body, {w: 1}, function (err, doc) {
+        MongoDB.collection('Groups').update({ _id: new ObjectID(id) }, req.body, { w: 1 }, function (err, doc) {
             if (err) {
                 console.log(err);
-                result.json({type: false})
+                result.json({ type: false })
             } else {
                 console.log('update success! docs uploaded:' + doc)
-                result.json({type: true})
+                result.json({ type: true })
             }
         });
     });
@@ -283,7 +282,7 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
             title: req.body.title,
             message: req.body.message
         }
-        MongoDB.collection('Teachers').findOne({_id: new ObjectID(req.body.user)}, function (err, doc) {
+        MongoDB.collection('Teachers').findOne({ _id: new ObjectID(req.body.user) }, function (err, doc) {
             if (!err) {
                 console.log(doc)
                 addNotificationTo(doc, notificationBody)
@@ -298,14 +297,14 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
             title: req.body.title,
             message: req.body.message
         }
-        console.log('Got here!'+notificationBody.message);
-       MongoDB.collection('Groups').findOne({groupName:req.body.quiz.group}, function (err, doc) {
-           console.log('And here'+doc.groupName);
-           MongoDB.collection('Teachers').findOne({_id:new ObjectID(doc.teacherId)},function(err,teacher){
-               console.log('And here'+doc.name);
-               addNotificationTo(teacher,notificationBody);
-           })
-       })
+        console.log('Got here!' + notificationBody.message);
+        MongoDB.collection('Groups').findOne({ groupName: req.body.quiz.group }, function (err, doc) {
+            console.log('And here' + doc.groupName);
+            MongoDB.collection('Teachers').findOne({ _id: new ObjectID(doc.teacherId) }, function (err, teacher) {
+                console.log('And here' + doc.name);
+                addNotificationTo(teacher, notificationBody);
+            })
+        })
     })
 
     app.post('/sendnotificationgroup', function (req, result) {
@@ -366,7 +365,7 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
         }
 
         delete reciever._id;
-        MongoDB.collection('Teachers').update({login: reciever.login}, reciever, {w: 1}, function (err, doc) {
+        MongoDB.collection('Teachers').update({ login: reciever.login }, reciever, { w: 1 }, function (err, doc) {
             if (!err && doc) {
                 console.log('Added notification')
             }
@@ -403,7 +402,7 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
             MongoDB.collection('Teachers').find().toArray(function (err, res) {
                 for (var teacher in res) {
                     var teacherName = res[teacher].name + res[teacher].sirname + res[teacher].fathername;
-
+                    
                     if (res[teacher].isteacher && teacherName.toLowerCase().indexOf(req.body.query.toLowerCase()) != -1) {
                         searchresults.teachers.push(res[teacher]);
                     }
@@ -416,6 +415,7 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
 
     });
 
+    //DEV FUNCTIONS
 
     app.post('/savegroup', function (req, result) {
         req.body._id = new ObjectID();
@@ -430,5 +430,30 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
             }
         });
     });
+
+    app.post('/authallusers', function (req, res) {
+        console.log("hit");
+        MongoDB.collection('Teachers').find().toArray(function (err, res) {
+            if (err) {
+                console.log(err);
+            } else {
+                for (var teacher in res) {
+                    teacher.activationStatusCode = 200;
+                    delete teacher._id;
+                    MongoDB.collection('Teachers').update({login: teacher.login}, teacher, { w: 1 }, function (err, doc) {
+                        console.log(err);
+                        if (!err && doc) {
+                            console.log('Changed status');
+                        }
+                    })
+                }
+            }
+
+        });
+
+        console.log("all users now have their status code set to 200.");
+        res.json({ type: true, message: "all users now have their status code set to 200." });
+    });
+
 }
 

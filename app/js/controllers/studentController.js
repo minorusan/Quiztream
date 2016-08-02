@@ -37,7 +37,7 @@ function StudentController($scope, $http, $rootScope, helperMethods, $location) 
     $scope.removeQuiz = $rootScope.removeQuiz =  function (quiz) {
         $scope.currentUser.quizes.splice($scope.currentUser.quizes.indexOf(quiz), 1);
         $scope.saveChanges();
-        $http.post("http://localhost:8080//removequiz", quiz).success(function (data, status, headers, config) {
+        $http.post("http://localhost:8080/removequiz", quiz).success(function (data, status, headers, config) {
         })
     };
 
@@ -47,7 +47,7 @@ function StudentController($scope, $http, $rootScope, helperMethods, $location) 
     };
 
     $scope.uploadMembers = function (group) {
-        $http.post("http://localhost:8080//teachers/getGroupMembers", group).success(function (data, status, headers, config) {
+        $http.post("http://localhost:8080/teachers/getGroupMembers", group).success(function (data, status, headers, config) {
             group.members = data;
             console.log('group members');
             console.log(data);
@@ -56,7 +56,7 @@ function StudentController($scope, $http, $rootScope, helperMethods, $location) 
 
 
     $scope.saveChanges = function () {
-        $http.post("http://localhost:8080//teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+        $http.post("http://localhost:8080/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
             console.log(data.message);
             if (!data.type) {
                 $('#saveChangesFail').css('display', 'inline').fadeOut(2000).text('Save changes failed. Server error');
@@ -73,11 +73,11 @@ function StudentController($scope, $http, $rootScope, helperMethods, $location) 
     $scope.answerQuiz = function(quiz){
         $rootScope.quizToAnswer = quiz;
     }
-    $http.post("http://localhost:8080//teachers/getStudentGroups", $scope.currentUser).success(function (data, status, headers, config) {
+    $http.post("http://localhost:8080/teachers/getStudentGroups", $scope.currentUser).success(function (data, status, headers, config) {
         $scope.currentUser.groups = data;
     })
 
-    $http.post("http://localhost:8080//teachers/getStudentQuizes", $scope.currentUser).success(function (data, status, headers, config) {
+    $http.post("http://localhost:8080/teachers/getStudentQuizes", $scope.currentUser).success(function (data, status, headers, config) {
         $scope.currentUser.quizes = data;
     
     })

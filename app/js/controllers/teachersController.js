@@ -30,7 +30,7 @@ function TeachersController($scope, $http, $rootScope, helperMethods, $location)
     };
 
     $scope.uploadMembers = function (group) {
-        $http.post("http://localhost:8080//teachers/getGroupMembers", group).success(function (data, status, headers, config) {
+        $http.post("http://localhost:8080/teachers/getGroupMembers", group).success(function (data, status, headers, config) {
             group.members = data;
             console.log('group members');
             console.log(data);
@@ -40,22 +40,22 @@ function TeachersController($scope, $http, $rootScope, helperMethods, $location)
     $scope.removeQuiz = function (quiz) {
         $scope.currentUser.quizes.splice($scope.currentUser.quizes.indexOf(quiz),1);
         $scope.saveChanges();
-        $http.post("http://localhost:8080//removequiz", quiz).success(function (data, status, headers, config) {})
+        $http.post("http://localhost:8080/removequiz", quiz).success(function (data, status, headers, config) {})
     };
 
     $scope.removeGroup = function (group) {
         $scope.currentUser.groups.splice($scope.currentUser.quizes.indexOf(group),1);
         $scope.saveChanges();
-        $http.post("http://localhost:8080//removegroup", group).success(function () {})
+        $http.post("http://localhost:8080/removegroup", group).success(function () {})
     };
 
     $scope.removeGroupLink = function (group, link) {
         delete group.links.splice(group.links.indexOf(link),1);
-        $http.post("http://localhost:8080//removegrouplink", group).success(function () {})
+        $http.post("http://localhost:8080/removegrouplink", group).success(function () {})
     };
 
     $scope.saveChanges = function () {
-        $http.post("http://localhost:8080//teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+        $http.post("http://localhost:8080/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
             console.log(data.message);
             if (!data.type) {
                 $('#saveChangesFail').css('display', 'inline').fadeOut(2000).text('Save changes failed. Server error');
@@ -75,13 +75,13 @@ function TeachersController($scope, $http, $rootScope, helperMethods, $location)
             $scope.saveChanges();
     });
 
-    $http.post("http://localhost:8080//teachers/getTeacherGroups", $scope.currentUser).success(function (data, status, headers, config) {
+    $http.post("http://localhost:8080/teachers/getTeacherGroups", $scope.currentUser).success(function (data, status, headers, config) {
         
         $scope.currentUser.groups = data;
         
     })
 
-    $http.post("http://localhost:8080//teachers/getTeacherQuizes", $scope.currentUser).success(function (data, status, headers, config) {
+    $http.post("http://localhost:8080/teachers/getTeacherQuizes", $scope.currentUser).success(function (data, status, headers, config) {
         $scope.currentUser.quizes = data;
         helperMethods.initAvatarSelection($scope, $rootScope)
     });
