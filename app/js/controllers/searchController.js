@@ -6,7 +6,7 @@ function SearchController($scope, $http, $rootScope) {
     $scope.searchresults = [];
     $scope.performSearch = function () {
         var search = {query:$scope.query}
-        $http.post("http://quiztream-quiztreambeta.rhcloud.com//search", search).success(function (data, status, headers, config) {
+        $http.post("http://localhost:8080//search", search).success(function (data, status, headers, config) {
             $scope.searchresults = data;
         })
     };
@@ -21,7 +21,7 @@ function SearchController($scope, $http, $rootScope) {
 
         if(!alreadyingroup){
             $rootScope.currentUser.groups.push(group)
-            $http.post("http://quiztream-quiztreambeta.rhcloud.com//teachers/saveUser", $rootScope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://localhost:8080//teachers/saveUser", $rootScope.currentUser).success(function (data, status, headers, config) {
                 console.log('User been added to group')
 
                 notify = {
@@ -29,7 +29,7 @@ function SearchController($scope, $http, $rootScope) {
                     message: $rootScope.currentUser.name + ' ' + $rootScope.currentUser.sirname+' добавлен в группу '+group.groupName,
                     user:group.teacherId
                 }
-                $http.post("http://quiztream-quiztreambeta.rhcloud.com//sendnotification", notify).success(function (data, status, headers, config) {
+                $http.post("http://localhost:8080//sendnotification", notify).success(function (data, status, headers, config) {
                     console.log('sended notification')
                 })
             })

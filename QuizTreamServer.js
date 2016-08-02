@@ -38,7 +38,7 @@ var options = {
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
     mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + 'quiztream';
 }
-var MongoDB = mongoose.connect(mongodb_connection_string, options).connection;
+var MongoDB = mongoose.connect(mongodb_connection_string, null).connection;
 
 MongoDB.on('error', function (err) {
     console.log('Cannot connect ' + err.message);

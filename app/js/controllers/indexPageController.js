@@ -10,20 +10,20 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
     var noError = true;
     $(function(){
         if($cookieStore.get('quiztreamAuth')){
-            window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com//'+$cookieStore.get('quiztreamAuth');
+            window.location.href = 'http://localhost:8080/'+$cookieStore.get('quiztreamAuth');
         }
     });
 
     helperMethods.initPictureInput($scope);
 
     $scope.logIn = function () {
-        $http.post("http://quiztream-quiztreambeta.rhcloud.com//teachers/login", $scope.loginModel).success(function (data) {
+        $http.post("http://localhost:8080/teachers/login", $scope.loginModel).success(function (data) {
             if (data.type) {
                 $cookieStore.put('quiztreamAuth', data.token)
                 if(data.student){
-                    window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com//studentprofile");
+                    window.location.href = ("http://localhost:8080/studentprofile");
                 }else{
-                    window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com//profile");
+                    window.location.href = ("http://localhost:8080/profile");
                 }
                 $('#loginSuccess').css('display', 'inline').fadeOut(2000);
             } else {
@@ -53,16 +53,16 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
 
 
         if (noError) {
-            $http.post("http://quiztream-quiztreambeta.rhcloud.com//teachers/register", $scope.registerEntity).success(function (data, status, headers, config) {
+            $http.post("http://localhost:8080/teachers/register", $scope.registerEntity).success(function (data, status, headers, config) {
                 if(status!=413){
                     if (data.type) {
                         $cookieStore.remove('quiztreamAuth');
                         $cookieStore.put('quiztreamAuth', data.token)
                         $('#registerSuccess').css('display', 'inline').fadeOut(2000);
                         if($scope.registerEntity.isteacher){
-                            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com/profile");
+                            window.location.href = ("http://localhost:8080/profile");
                         }else{
-                            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com/studentprofile");
+                            window.location.href = ("http://localhost:8080/studentprofile");
                         }
 
                     } else {

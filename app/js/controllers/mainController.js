@@ -5,28 +5,28 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
 	$.material.init();
     var token = $cookieStore.get('quiztreamAuth');
     if(!token) {
-        window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com//';
+        window.location.href = 'http://localhost:8080//';
     }
 
     $rootScope.$on("$locationChangeStart", function(event, next, current) {
         if(token.indexOf('student') != -1 && $rootElement.attr('ng-app').indexOf('teacher') != -1){
-            window.location.href = ("http://quiztream-quiztreambeta.rhcloud.com//studentprofile");
+            window.location.href = ("http://localhost:8080//studentprofile");
         }
     });
     
     
     //Initial get request
-    $http.get("http://quiztream-quiztreambeta.rhcloud.com//auth/"+token).success(function (data) {
+    $http.get("http://localhost:8080//auth/"+token).success(function (data) {
 
         $scope.logOut = function(){
             $cookieStore.remove('quiztreamAuth');
-            window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com//';
+            window.location.href = 'http://localhost:8080//';
         }
 
         if(!data || !data.type)
         {
             $scope.currentUser = {
-                avatar:'http://quiztream-quiztreambeta.rhcloud.com//img/accountdeleted.png',
+                avatar:'http://localhost:8080//img/accountdeleted.png',
                 name:'',
                 sirname:'',
                 fathername:'',
@@ -48,14 +48,14 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
 
         $scope.onClearNotificationsClick = function () {
             $scope.currentUser.notifications = [];
-            $http.post("http://quiztream-quiztreambeta.rhcloud.com//teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://localhost:8080//teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
                 console.log(data.message);
             })
         };
 
         $scope.clearCurrentNotification = function (notification) {
             $scope.currentUser.notifications.splice($scope.currentUser.notifications.indexOf(notification), 1);
-            $http.post("http://quiztream-quiztreambeta.rhcloud.com//teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://localhost:8080//teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
                 console.log(data.message);
             })
         };

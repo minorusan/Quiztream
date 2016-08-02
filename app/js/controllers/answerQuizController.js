@@ -14,13 +14,13 @@ function AnswerQuizController($scope, entityKeeper, $http, $rootScope, helperMet
             message: $rootScope.currentUser.name + ' ' + $rootScope.currentUser.sirname + ' пытался сжульничать на тесте.. \n' + 'Правильных ответов ' + correctAnswers
         }
 
-        $http.post("http://quiztream-quiztreambeta.rhcloud.com//sendnotificationquizfinished", notification).success(function () {
+        $http.post("http://localhost:8080/sendnotificationquizfinished", notification).success(function () {
 
             }
         )
 
 
-        window.location.href = 'http://quiztream-quiztreambeta.rhcloud.com/'
+        window.location.href = 'http://localhost:8080/'
     };
 
 
@@ -54,7 +54,7 @@ function AnswerQuizController($scope, entityKeeper, $http, $rootScope, helperMet
         }
         
 
-        $http.post("http://quiztream-quiztreambeta.rhcloud.com//sendnotificationquizfinished", notification).success(function () {
+        $http.post("http://localhost:8080/sendnotificationquizfinished", notification).success(function () {
             }
         )
     }
