@@ -11,7 +11,7 @@ function CreateGroupController($scope, entityKeeper, $http, $rootScope, helperMe
 
     $scope.saveGroup = function () {
         if (!$rootScope.groupToEdit) {
-            $http.post('http://localhost:8080/savegroup', $scope.currentGroup).success(function (data) {
+            $http.post('http://localhost:8080/creategroup', $scope.currentGroup).success(function (data) {
                 if (data.type) {
                     $('#saveChangesSuccess').css('display', 'inline').fadeOut(2000);
 

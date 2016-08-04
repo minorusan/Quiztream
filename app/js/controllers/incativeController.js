@@ -33,7 +33,7 @@ function IncativeController($scope, $http, $rootScope, helperMethods, $location)
 
 
     /*
-        $http.post("http://localhost:8080/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+        $http.post("http://localhost:8080/users/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
             console.log(data.message);
             if (!data.type) {
                 $('#saveChangesFail').css('display', 'inline').fadeOut(2000).text('Request failed. Server error');

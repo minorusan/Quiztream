@@ -48,14 +48,14 @@ function MainController($scope, $http, $rootScope, $cookieStore, $rootElement, $
 
         $scope.onClearNotificationsClick = function () {
             $scope.currentUser.notifications = [];
-            $http.post("http://localhost:8080/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://localhost:8080/users/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
                 console.log(data.message);
             })
         };
 
         $scope.clearCurrentNotification = function (notification) {
             $scope.currentUser.notifications.splice($scope.currentUser.notifications.indexOf(notification), 1);
-            $http.post("http://localhost:8080/teachers/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://localhost:8080/users/saveUser", $scope.currentUser).success(function (data, status, headers, config) {
                 console.log(data.message);
             })
         };

@@ -11,7 +11,7 @@ function CreateTestController($scope, entityKeeper, $http, $rootScope, helperMet
 
     $scope.saveQuiz = function () {
         if (!$rootScope.quizToEdit) {
-            $http.post('http://localhost:8080/savequiz', $scope.currentQuiz).success(function (data) {
+            $http.post('http://localhost:8080/createquiz', $scope.currentQuiz).success(function (data) {
                 if (data.type) {
                     $('#saveChangesSuccess').css('display', 'inline').fadeOut(2000);
                     setTimeout(window.location.href = ('http://localhost:8080/quizes'), 1000)

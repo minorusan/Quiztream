@@ -17,7 +17,7 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
     helperMethods.initPictureInput($scope);
 
     $scope.logIn = function () {
-        $http.post("http://localhost:8080/teachers/login", $scope.loginModel).success(function (data) {
+        $http.post("http://localhost:8080/users/login", $scope.loginModel).success(function (data) {
             if (data.type) {
                 $cookieStore.put('quiztreamAuth', data.token)
                 if(data.student){
@@ -53,7 +53,7 @@ function IndexPageController($scope, $http, $cookieStore, entityKeeper, helperMe
 
 
         if (noError) {
-            $http.post("http://localhost:8080/teachers/register", $scope.registerEntity).success(function (data, status, headers, config) {
+            $http.post("http://localhost:8080/users/register", $scope.registerEntity).success(function (data, status, headers, config) {
                 if(status!=413){
                     if (data.type) {
                         $cookieStore.remove('quiztreamAuth');

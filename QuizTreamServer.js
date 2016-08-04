@@ -2,8 +2,15 @@
 var express = require('express');
 var app = express();
 var path = require('path');
+var pathToFiles = __dirname.replace('ServerQueries/', '');
 var bodyParser = require('body-parser');
-var queries = require('./serverQueries.js');
+
+var groupQueries = require('./ServerSide/groupQueries.js');
+var usersQueries = require('./ServerSide/usersQueries.js');
+var authQueries = require('./ServerSide/authQueries.js');
+var quizQueries = require('./ServerSide/quizQueries.js');
+var notificationQueries = require('./ServerSide/notificationQueries.js');
+var serversQueries = require('./ServerSide/serverQueries.js');
 
 var mongoose = require('mongoose');
 var jwt = require("jsonwebtoken");
@@ -54,5 +61,12 @@ app.listen(server_port, server_ip_address, function () {
     console.log( "Listening on " + server_ip_address + ", server_port " + server_port )
 })
 
-queries.serverQueries(app, MongoDB, jwt);
+
+
+serversQueries.serverQueries(app, MongoDB, jwt, pathToFiles);
+groupQueries.groupQueries(app, MongoDB, jwt, pathToFiles);
+notificationQueries.notificationQueries(app, MongoDB, jwt, pathToFiles);
+usersQueries.usersQueries(app, MongoDB, jwt, pathToFiles);
+quizQueries.quizQueries(app, MongoDB, jwt, pathToFiles);
+authQueries.authQueries(app, MongoDB, jwt, pathToFiles);
 

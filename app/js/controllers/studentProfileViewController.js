@@ -2,7 +2,7 @@
  * Created by Щукин on 4/3/2015.
  */
 function StudentProfileViewController($scope, $http) {
-    var responsePromise = $http.get('http://quiztream-quiztreambeta.rhcloud.com//teachers/getstudent');
+    var responsePromise = $http.get('http://quiztream-quiztreambeta.rhcloud.com//users/getstudent');
 
     responsePromise.success(function (data, status, headers, config) {
         $scope.currentStudent = data;

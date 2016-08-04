@@ -22,7 +22,7 @@ function SearchController($scope, $http, $rootScope) {
         if (!alreadyingroup) {
 
             $rootScope.currentUser.groups.push(group)
-            $http.post("http://localhost:8080/teachers/saveUser", $rootScope.currentUser).success(function (data, status, headers, config) {
+            $http.post("http://localhost:8080/users/saveUser", $rootScope.currentUser).success(function (data, status, headers, config) {
                 console.log('User been added to group')
 
                 notify = {
