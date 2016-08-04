@@ -437,7 +437,9 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
             if (err) {
                 console.log(err);
             } else {
-                for (var teacher in res) {
+                for (var i = 0; i < res.length; i++)
+                {                
+                    var teacher = res[i];     
                     teacher.activationStatusCode = 200;
                     delete teacher._id;
                     MongoDB.collection('Teachers').update({login: teacher.login}, teacher, { w: 1 }, function (err, doc) {
