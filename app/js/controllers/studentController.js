@@ -43,6 +43,14 @@ function StudentController($scope, $http, $rootScope, helperMethods, $location) 
 
     $scope.removeGroup = function (group) {
         $scope.currentUser.groups.splice($scope.currentUser.quizes.indexOf(group), 1);
+
+        var removeGroupMemberRequest = {
+            groupId:group._id,
+            memberId:$scope.currentUser._id
+        }
+         $http.post("http://localhost:8080/removegroupmember", removeGroupMemberRequest).success(function (data, status, headers, config) {
+            console.log("left group");
+        })
         $scope.saveChanges();
     };
 

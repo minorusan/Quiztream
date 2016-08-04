@@ -18,6 +18,58 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
         })
     });
 
+//TODO
+     app.post('/removegroupmember', function(req,res){
+        MongoDB.collection('GroupMembers').findOne({groupId: req.body.groupId}, function(err, doc){
+            if(!doc)
+            {
+                console.error('LOGIC ERROR')
+            }
+            else
+            {
+                doc.members.splice(req.body.memberId, 1);
+                MongoDB.collection('GroupMembers').update({groupId : doc.groupId}, doc, {w:1}, function(err, doc){
+                    if(err)
+                    {
+                        console.log('ERROR UPDATING GROUP MEMBER');
+                        console.log(err);
+                    }
+                })
+            }
+        })
+    })
+
+    app.post('/addgroupmember', function(req,res){
+        MongoDB.collection('GroupMembers').findOne({groupId: req.body.groupId}, function(err, doc){
+            if(!doc)
+            {
+                var newGroupMembersEntitie = {
+                    groupId : req.body.groupId,
+                    members : [req.body.memberId]
+                }    
+                MongoDB.collection('GroupMembers').insert(newGroupMembersEntitie, function(err, doc){
+                    if(err)
+                    {
+                        console.log('ERROR ADDING GROUP MEMBER');
+                        console.log(err);
+                    }
+                })
+            }
+            else
+            {
+                doc.members.push(req.body.memberId);
+                MongoDB.collection('GroupMembers').update({groupId : doc.groupId}, doc, {w:1}, function(err, doc){
+                    if(err)
+                    {
+                        console.log('ERROR UPDATING GROUP MEMBER');
+                        console.log(err);
+                    }
+                })
+            }
+        })
+    })
+
+
     app.post('/teachers/removeuser', function (req, result) {
         delete req.body._id;
         MongoDB.collection('Teachers').remove({ login: req.body.login }, function (err, doc) {
@@ -143,19 +195,41 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
 
     app.post('/teachers/getGroupMembers', function (req, result) {
         var members = [];
-        MongoDB.collection('Teachers').find().toArray(function (err, res) {
-            for (var student in res) {
-                if (res[student].isstudent) {
-                    for (var group in res[student].groups) {
-                        if (res[student].groups[group]._id == req.body._id) {
-                            members.push(res[student])
-                        }
-                    }
+        MongoDB.collection('GroupMembers').findOne({groupId:req.body._id}, function(err, docG){
+            if(err){
+                console.log(err)
+            }
 
+            if(docG)
+            {
+                for (var i = 0; i < docG.members.length; i++)
+                {
+                    var id = docG.members[i];
+                    MongoDB.collection('Teachers').findOne({_id: new ObjectID(id) }, function(err, doc){
+                        if(err){
+                            console.log(err)
+                        }
+                        if(doc){
+                            var member = {
+                                avatar:doc.avatar,
+                                name:doc.name,
+                                sirname:doc.sirname,
+                                fathername:doc.fathername,
+                                publicnote:doc.publicnote
+                            };
+
+                            members.push(member);
+
+                            if(members.length >= docG.members.length){
+                                result.json(members);
+                            }
+                        }
+                    })
                 }
             }
-            result.json(members);
         })
+
+
     });
 
     app.post('/teachers/getTeacherGroups', function (req, result) {
@@ -390,7 +464,6 @@ module.exports.serverQueries = function (app, MongoDB, jwt) {
         var searchresults = {
             groups: [],
             teachers: []
-
         }
 
         MongoDB.collection('Groups').find().toArray(function (err, res) {
